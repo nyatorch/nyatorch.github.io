@@ -385,13 +385,6 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#sfr" class="md-nav__link">
-    上电或复位后，SFR包含什么内容？
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#pswprogram-status-word" class="md-nav__link">
     PSW：程序状态字（PROGRAM STATUS WORD）可位寻址
   </a>
@@ -998,13 +991,6 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#sfr" class="md-nav__link">
-    上电或复位后，SFR包含什么内容？
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#pswprogram-status-word" class="md-nav__link">
     PSW：程序状态字（PROGRAM STATUS WORD）可位寻址
   </a>
@@ -1261,13 +1247,13 @@
 <h2 id="_1">存储器结构<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <h3 id="_2">程序存储器<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
 <p>8051 拥有独立地址空间（address spaces）的程序存储器（Program Memory）和数据存储器（Data Memory）。程序存储器可以长达 64KB， 较低（地址）的 4K（对 8052 来说是8K）可能位于芯片上（reside on-chip）
-<img alt="8051 的程序存储器" src="./images/8051_program_mem.png" /><br />
-<img alt="8052 的程序存储器" src="./images/8052_program_mem.png" />  </p>
+<img alt="8051 的程序存储器" src="../images/8051_program_mem.png" /><br />
+<img alt="8052 的程序存储器" src="../images/8052_program_mem.png" />  </p>
 <h3 id="_3">数据存储器<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
 <p>8051 可以寻址多达 64KB 的片外数据存储器。<code>MOVX</code> 指令被用于访问外置存储器（详细描述参考 <em>MCS-51 指令集</em> 章节）<br />
 8051 拥有 128 字节的片上 RAM （8052 是 256 字节） 以及一些特殊功能寄存器（Special Function Registers, SFRs）. 较低（地址）的 128 bytes 既可以被直接寻址（MOV data addr）也可以被间接寻址（MOV @Ri），图 3 展示了 8051 和 8052 的数据存储器结构。<br />
-<img alt="8051 的数据存储器" src="./images/8051_data_mem.png" /><br />
-<img alt="8052 的数据存储器" src="./images/8052_data_mem.png" />  </p>
+<img alt="8051 的数据存储器" src="../images/8051_data_mem.png" /><br />
+<img alt="8052 的数据存储器" src="../images/8052_data_mem.png" />  </p>
 <h3 id="_4">间接寻址区域<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
 <p>注意图 3b 中 ，特殊功能寄存器（SFRs）和间接寻址 RAM 拥有相同的地址（80H-0FFFH）. 但是它们是用两种不同方式访问的，两块独立的区域<br />
 例如指令：<br />
@@ -1283,7 +1269,7 @@ MOV    @R0,#0BBH
 </blockquote>
 <h3 id="_5">直接和间接寻址区域<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
 <p>可以通过直接和间接寻址访问的128字节的RAM可以分为3个部分（工作寄存器组区、位寻址区、数据缓冲区），如下图所示。
-<img alt="直接和间接寻址的 128 字节" src="./images/ram_area.png" /><br />
+<img alt="直接和间接寻址的 128 字节" src="../images/ram_area.png" /><br />
 1. <strong>寄存器组（Register Banks） 0-3</strong>：位置从 0 到 1FH （32字节）。ASM-51 和以及复位后的设备默认为组0（Bank 0），使用其他的寄存器组必须在软件（参考 <em>MCS-51 Micro Assembler User's Guide</em>）每个寄存器组包含了 8 个单字节寄存器，从 0 到 7 。<br />
 复位初始化栈指针（Stack Pointer，SP）到位置 07H 并且他被递增一次，从位置 08H 开始，，这是第二个寄存器组的第一个寄存器（RO）。因此，为了使用一个以上的寄存器组，SP应该被初始化到RAM中不用于数据存储的不同位置（即RAM的较高部分）。<br />
 2. <strong>位寻址区（Bit Addressable Area）</strong>：该段有16个字节，20H-2FH。该段的128位中的每一位都可以被直接寻址（0-7FH）。<br />
@@ -1292,44 +1278,183 @@ MOV    @R0,#0BBH
 3.<strong>数据缓冲区（Scrath Pad Area）</strong>：30H 到 7FH 字节可以作为数据RAM提供给用户。但是，如果堆栈指针被初始化到这个区域，应该留出足够数量的字节以防止 SP 数据被破坏。  </p>
 <h3 id="_6">特殊功能寄存器<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
 <p>表 1 包含了所有 SFR 及其地址的列表。<br />
-对比表 1 和图 5 可以看出，所有可寻址的字节和位的 SFR 都位于图 5 中的第一列(可以被8整除)。<br />
-|符号 (Symbol）|名称（Name）                                   |地址（Address）|
-|--------------|----------------------------------------------|---------------|
-|<em>ACC          |累加器（Accumulator）                          |0E0H           |
-|*B            |寄存器B                                        |0F0H           |
-|*PSW          |程序状态字（Program Status Word）               |0D0H           |
-|SP            |栈指针（Stack Pointer）                         |81H            |
-|DPTR          |双字节数据指针（Data Pointer 2 Bytes）           |               |
-|&emsp;DPL     |低字节（Low Byte）                               |82H            |
-|&emsp;DPH     |高字节（High Byte）                              |83H            |
-|*P0           |端口 0（Port 0）                                 |80H            |
-|*P1           |端口 1（Port 1）                                 |90H            |
-|*P2           |端口 2（Port 2）                                 |0A0H           |
-|*P3           |端口 3（Port 3）                                 |0B0H           |
-|*IP           |中断优先级控制（Interrupt Priority Control）      |0B8H           |
-|*IE           |中断使能控制（Interrupt Enable Control）          |0A8H           |
-|TMOD          |计时器/计数器模式控制（Timer/Counter Mode Control）|89H            |
-|*TCON         |计时器/计数器控制（Timer/Counter Control）         |88H            |
-|</em>+T2CON       |计时器/计数器 2 控制（Timer/Counter 2 Control）    |0C8H           |
-|TH0           |计时器/计数器 0 高字节（Timer/Counter 0 High Byte）|8CH            |
-|TL0           |计时器/计数器 0 低字节（Timer/Counter 0 Low Byte） |8AH            |
-|TH1           |计时器/计数器 1 高字节（Timer/Counter 1 High Byte）|8DH            |
-|TL1           |计时器/计数器 1 低字节（Timer/Counter 1 Low Byte） |8BH            |
-|+TH2          |计时器/计数器 2 高字节（Timer/Counter 2 High Byte）|0CDH           |
-|+TL2          |计时器/计数器 2 低字节（Timer/Counter 2 Low Byte） |0CCH           |
-|+RCAP2H       |T/C 2 捕获寄存器高字节（T/C 2 Capture Reg High Byte)|0CBH           |
-|+RCAP2L       |T/C 2 捕获寄存器低字节（T/C 2 Capture Reg Low Byte) |0CAH           |
-|*SCON         |串口控制（Serial Control）                         |98H           |
-|*SBUF         |串口数据缓冲（Serial Data Buffer）                 |99H           |
-|PCON          |Power Control                                     |87H           |</p>
-<blockquote>
-<p><code>*</code>表示可位寻址（Bit addressable）<br />
-<code>+</code>表示仅 8052 可用（8052 only）</p>
-</blockquote>
-<h3 id="sfr">上电或复位后，SFR包含什么内容？<a class="headerlink" href="#sfr" title="Permanent link">&para;</a></h3>
-<p>表 2 列出了特殊功能寄存器在上电或者硬件复位后的内容：<br />
-<img alt="复位后 SFR 的内容" src="./images/SFRs_init.png" /><br />
-<img alt="特殊功能寄存器的内存映射图" src="./images/SFR_mem_map.png" /></p>
+对比表 1 和图 5 可以看出，所有可寻址的字节和位的 SFR 都位于图 5 中的第一列(可以被8整除)。  </p>
+<table>
+<thead>
+<tr>
+<th>符号 (Symbol）</th>
+<th>名称（Name）</th>
+<th>地址（Address）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>*ACC</td>
+<td>累加器（Accumulator）</td>
+<td>0E0H</td>
+</tr>
+<tr>
+<td>*B</td>
+<td>寄存器B</td>
+<td>0F0H</td>
+</tr>
+<tr>
+<td>*PSW</td>
+<td>程序状态字（Program Status Word）</td>
+<td>0D0H</td>
+</tr>
+<tr>
+<td>SP</td>
+<td>栈指针（Stack Pointer）</td>
+<td>81H</td>
+</tr>
+<tr>
+<td>DPTR</td>
+<td>双字节数据指针（Data Pointer 2 Bytes）</td>
+<td></td>
+</tr>
+<tr>
+<td>&emsp;DPL</td>
+<td>低字节（Low Byte）</td>
+<td>82H</td>
+</tr>
+<tr>
+<td>&emsp;DPH</td>
+<td>高字节（High Byte）</td>
+<td>83H</td>
+</tr>
+<tr>
+<td>*P0</td>
+<td>端口 0（Port 0）</td>
+<td>80H</td>
+</tr>
+<tr>
+<td>*P1</td>
+<td>端口 1（Port 1）</td>
+<td>90H</td>
+</tr>
+<tr>
+<td>*P2</td>
+<td>端口 2（Port 2）</td>
+<td>0A0H</td>
+</tr>
+<tr>
+<td>*P3</td>
+<td>端口 3（Port 3）</td>
+<td>0B0H</td>
+</tr>
+<tr>
+<td>*IP</td>
+<td>中断优先级控制（Interrupt Priority Control）</td>
+<td>0B8H</td>
+</tr>
+<tr>
+<td>*IE</td>
+<td>中断使能控制（Interrupt Enable Control）</td>
+<td>0A8H</td>
+</tr>
+<tr>
+<td>TMOD</td>
+<td>计时器/计数器模式控制（Timer/Counter Mode Control）</td>
+<td>89H</td>
+</tr>
+<tr>
+<td>*TCON</td>
+<td>计时器/计数器控制（Timer/Counter Control）</td>
+<td>88H</td>
+</tr>
+<tr>
+<td>*+T2CON</td>
+<td>计时器/计数器 2 控制（Timer/Counter 2 Control）</td>
+<td>0C8H</td>
+</tr>
+<tr>
+<td>TH0</td>
+<td>计时器/计数器 0 高字节（Timer/Counter 0 High Byte）</td>
+<td>8CH</td>
+</tr>
+<tr>
+<td>TL0</td>
+<td>计时器/计数器 0 低字节（Timer/Counter 0 Low Byte）</td>
+<td>8AH</td>
+</tr>
+<tr>
+<td>TH1</td>
+<td>计时器/计数器 1 高字节（Timer/Counter 1 High Byte）</td>
+<td>8DH</td>
+</tr>
+<tr>
+<td>TL1</td>
+<td>计时器/计数器 1 低字节（Timer/Counter 1 Low Byte）</td>
+<td>8BH</td>
+</tr>
+<tr>
+<td>+TH2</td>
+<td>计时器/计数器 2 高字节（Timer/Counter 2 High Byte）</td>
+<td>0CDH</td>
+</tr>
+<tr>
+<td>+TL2</td>
+<td>计时器/计数器 2 低字节（Timer/Counter 2 Low Byte）</td>
+<td>0CCH</td>
+</tr>
+<tr>
+<td>+RCAP2H</td>
+<td>T/C 2 捕获寄存器高字节（T/C 2 Capture Reg High Byte)</td>
+<td>0CBH</td>
+</tr>
+<tr>
+<td>+RCAP2L</td>
+<td>T/C 2 捕获寄存器低字节（T/C 2 Capture Reg Low Byte)</td>
+<td>0CAH</td>
+</tr>
+<tr>
+<td>*SCON</td>
+<td>串口控制（Serial Control）</td>
+<td>98H</td>
+</tr>
+<tr>
+<td>*SBUF</td>
+<td>串口数据缓冲（Serial Data Buffer）</td>
+<td>99H</td>
+</tr>
+<tr>
+<td>PCON</td>
+<td>Power Control</td>
+<td>87H</td>
+</tr>
+<tr>
+<td>&gt; <code>*</code>表示可位寻址（Bit addressable）</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>&gt; <code>+</code>表示仅 8052 可用（8052 only）</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>### 上电或复位后，SFR包含什么内容？</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>表 2 列出了特殊功能寄存器在上电或者硬件复位后的内容：</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><img alt="复位后 SFR 的内容" src="../images/SFRs_init.png" /></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><img alt="特殊功能寄存器的内存映射图" src="../images/SFR_mem_map.png" /></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
 <p>本节列出了那些为各种功能分配了位的 SFR。提供每个位的简要说明以供快速参考。有关更多详细信息，请参阅本书的架构章节。</p>
 <h3 id="pswprogram-status-word">PSW：程序状态字（PROGRAM STATUS WORD）可位寻址<a class="headerlink" href="#pswprogram-status-word" title="Permanent link">&para;</a></h3>
 <table>
@@ -1473,9 +1598,33 @@ IDL     空闲模式位（idle Mode bit）。设置这个位激活 80C51BH 中�
 <p>ITx = 1 边沿触发（transition activated，有人也说跳变触发），实际上是下降沿触发（负跳变触发）</p>
 </blockquote>
 <h3 id="ie-interrupt-enable-register">IE 中断使能寄存器（INTERRUPT ENABLE REGISTER），可位寻址<a class="headerlink" href="#ie-interrupt-enable-register" title="Permanent link">&para;</a></h3>
-<p>如果位为 0，则禁用相应的中断。如果位是 1，则启用相应的中断。
-|EA|——|ET2|ES|ET1|EX1|ET0|EX0|
-|--|--|---|--|---|---|---|---|</p>
+<p>如果位为 0，则禁用相应的中断。如果位是 1，则启用相应的中断。   </p>
+<table>
+<thead>
+<tr>
+<th>EA</th>
+<th>——</th>
+<th>ET2</th>
+<th>ES</th>
+<th>ET1</th>
+<th>EX1</th>
+<th>ET0</th>
+<th>EX0</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
 <div class="highlight"><pre><span></span><code>EA    IE.7    禁用所有中断，如果EA = 0，没有中断将会被确认，如果 EA = 1，每个中断源地可独立地通过设定或其使能位开启或关闭
 
 ——    IE.6    没有实现，保留给未来使用*
@@ -1500,17 +1649,43 @@ EX0   IE.0    启用或禁用外部中断（External Interrupt 0）
 请记住，当一个中断服务正在进行时，它不能被较低或同级别的中断所打断。  </p>
 <h3 id="priority-within-level">级别内优先级 (PRIORITY WITHIN LEVEL)<a class="headerlink" href="#priority-within-level" title="Permanent link">&para;</a></h3>
 <p>级别内的优先级只是为了解决同一优先级的同时请求。<br />
-从高到低，中断源列举如下：<br />
-+ IE0（External Interrupt 0 edge flag，外部中断 0 边沿标志，位于 TCON 寄存器 ）<br />
-+ TF0（Timer 0 Overflow Flag，计时器 0 溢出标志，位于 TCON 寄存器 ）
-+ IE1（External Interrupt 1 edge flag，外部中断 1 边沿标志，位于 TCON 寄存器）<br />
-+ TF1  （Timer 1 Overflow Flag，计时器 0 溢出标志，位于 TCON 寄存器）
-+ RI 或 TI（Receive Interrupt Flag/Transmit Interrupt Flag 串口接收/发射中断标志，位于 SCON 寄存器）
-+ TF2 或 EXF2（Timer 2 Overflow Flag/Timer 2 External Flag，计时器 2 溢出/外部标志位，位于 T2CON 寄存器，仅 8052 可用）</p>
+从高到低，中断源列举如下：  </p>
+<ul>
+<li>IE0（External Interrupt 0 edge flag，外部中断 0 边沿标志，位于 TCON 寄存器 ）  </li>
+<li>TF0（Timer 0 Overflow Flag，计时器 0 溢出标志，位于 TCON 寄存器 ）</li>
+<li>IE1（External Interrupt 1 edge flag，外部中断 1 边沿标志，位于 TCON 寄存器）  </li>
+<li>TF1  （Timer 1 Overflow Flag，计时器 0 溢出标志，位于 TCON 寄存器）</li>
+<li>RI 或 TI（Receive Interrupt Flag/Transmit Interrupt Flag 串口接收/发射中断标志，位于 SCON 寄存器）</li>
+<li>TF2 或 EXF2（Timer 2 Overflow Flag/Timer 2 External Flag，计时器 2 溢出/外部标志位，位于 T2CON 寄存器，仅 8052 可用）</li>
+</ul>
 <h2 id="ip-interrupt-priority-register">IP （Interrupt Priority Register）中断优先级寄存器，可位寻址<a class="headerlink" href="#ip-interrupt-priority-register" title="Permanent link">&para;</a></h2>
-<p>如果该位为 0，相应的中断具有较低的优先级，如果该位为 1，相应的中断具有较高的优先级。
-|——|——|PT2|PS|PT1|PX1|PT0|PX0|
-|--|--|---|--|---|---|---|---|</p>
+<p>如果该位为 0，相应的中断具有较低的优先级，如果该位为 1，相应的中断具有较高的优先级。  </p>
+<table>
+<thead>
+<tr>
+<th>——</th>
+<th>——</th>
+<th>PT2</th>
+<th>PS</th>
+<th>PT1</th>
+<th>PX1</th>
+<th>PT0</th>
+<th>PX0</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
 <div class="highlight"><pre><span></span><code>——    IP.7    没有实现，保留给未来使用*
 ——    IP.6    没有实现，保留给未来使用*
 PT2   IP.5    定义了计时器 2 中断的优先级（仅限 8052）
@@ -1959,13 +2134,48 @@ RI      SCON. 0      接收中断标志（Receive interrupt flag）。在模式0
 </tr>
 </tbody>
 </table>
-<p>NOTE 1:
-|SM0|SM1|模式|    描述    |波特率(Baud Rate)|
-|---|---|----|------------|-----------------|
-| 0 | 0 | 0  |  切换寄存器 | Fosc./12        |
-| 0 | 1 | 1  | 8-bit UART |     可变         |
-| 1 | 0 | 2  | 9-bit UART |   Fosc/64 或 <br> Fosc./32   |
-| 1 | 1 | 3  | 9-bit UART |     可变         |</p>
+<p>NOTE 1:  </p>
+<table>
+<thead>
+<tr>
+<th>SM0</th>
+<th>SM1</th>
+<th>模式</th>
+<th>描述</th>
+<th>波特率(Baud Rate)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>切换寄存器</td>
+<td>Fosc./12</td>
+</tr>
+<tr>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>8-bit UART</td>
+<td>可变</td>
+</tr>
+<tr>
+<td>1</td>
+<td>0</td>
+<td>2</td>
+<td>9-bit UART</td>
+<td>Fosc/64 或 <br> Fosc./32</td>
+</tr>
+<tr>
+<td>1</td>
+<td>1</td>
+<td>3</td>
+<td>9-bit UART</td>
+<td>可变</td>
+</tr>
+</tbody>
+</table>
 <h2 id="_16">串口设置<a class="headerlink" href="#_16" title="Permanent link">&para;</a></h2>
 <h3 id="9">表9<a class="headerlink" href="#9" title="Permanent link">&para;</a></h3>
 <table>
@@ -2014,60 +2224,50 @@ RI      SCON. 0      接收中断标志（Receive interrupt flag）。在模式0
 <h2 id="generating-baud-rates">产生波特率（GENERATING BAUD RATES）<a class="headerlink" href="#generating-baud-rates" title="Permanent link">&para;</a></h2>
 <h3 id="0-serial-port-in-mode-0">模式 0 的串口（Serial Port in Mode 0）:<a class="headerlink" href="#0-serial-port-in-mode-0" title="Permanent link">&para;</a></h3>
 <p>模式 0 有一个固定的波特率，是振荡器频率的 1/12。要在这种模式下运行串口，不需要设置任何的 定时器/计数器都不需要被设置。只有 SCON 寄存器需要被定义。</p>
-<div class="arithmatex">
-<div class="MathJax_Preview">
+<!-- $$
 Baud\ Rate = \frac{Osc\ Freq}{12}
-</div>
-<script type="math/tex; mode=display">
-Baud\ Rate = \frac{Osc\ Freq}{12}
-</script>
-</div>
+$$ -->
+
+<div align="center"><img style="background: white;" src="https://render.githubusercontent.com/render/math?math=Baud%5C%20Rate%20%3D%20%5Cfrac%7BOsc%5C%20Freq%7D%7B12%7D%0D"></div>
+
 <h3 id="1-serial-port-in-mode-0">模式 1 的串口（Serial Port in Mode 0）:<a class="headerlink" href="#1-serial-port-in-mode-0" title="Permanent link">&para;</a></h3>
 <p>模式1有一个可变的波特率。波特率可以由定时器1或定时器2产生（仅8052）。
 要用于此用途，定时器1被用于模式2（自动重载）。请参考本章的定时器设置部分。</p>
-<div class="arithmatex">
-<div class="MathJax_Preview">
+<!-- $$
 \frac{(K \times Oscillator\ Freq.)}{32 \times 12 \times [256 - (TH1)]}
-</div>
-<script type="math/tex; mode=display">
-\frac{(K \times Oscillator\ Freq.)}{32 \times 12 \times [256 - (TH1)]}
-</script>
-</div>
+$$ -->
+
+<div align="center"><img style="background: white;" src="https://render.githubusercontent.com/render/math?math=%5Cfrac%7B(K%20%5Ctimes%20Oscillator%5C%20Freq.)%7D%7B32%20%5Ctimes%2012%20%5Ctimes%20%5B256%20-%20(TH1)%5D%7D%0D"></div>
+
 <p>TH1 必须是一个整数值。将 TH1 四舍五入(Rounding off)到最接近的整数可能不会产生所需的波特率。在这种情况下，用户可能不得不选择另一种晶体频率。</p>
 <p>由于PCON寄存器是不可寻址的，设置该位的一种方法是对PCON寄存器进行逻辑OR。(即ORL PCON,Ý 80H)。PCON的地址是87H。</p>
 <h2 id="2_1">使用定时器/计数器2来产生波特率。<a class="headerlink" href="#2_1" title="Permanent link">&para;</a></h2>
 <p>为此，必须在波特率产生模式下使用定时器2。请参考本章的定时器2设置表。如果定时器2通过引脚T2（P1.0）进行时钟控制，则波特率为：</p>
-<div class="arithmatex">
-<div class="MathJax_Preview">
+<!-- $$
 Baud\ Rate = \frac{Timer\ 2 \ Overflow\ Freq}{16}
-</div>
-<script type="math/tex; mode=display">
-Baud\ Rate = \frac{Timer\ 2 \ Overflow\ Freq}{16}
-</script>
-</div>
+$$ -->
+
+<div align="center"><img style="background: white;" src="https://render.githubusercontent.com/render/math?math=Baud%5C%20Rate%20%3D%20%5Cfrac%7BTimer%5C%202%20%5C%20Overflow%5C%20Freq%7D%7B16%7D%0D"></div>
+
 <p>而如果是内部时钟，那么波特率就是:</p>
-<div class="arithmatex">
-<div class="MathJax_Preview">
+<!-- $$
 \frac{Osc\ Freq}{32 \times [65536 - (RCAP2H,RCAP2L)]}
-</div>
-<script type="math/tex; mode=display">
-\frac{Osc\ Freq}{32 \times [65536 - (RCAP2H,RCAP2L)]}
-</script>
-</div>
+$$ -->
+
+<div align="center"><img style="background: white;" src="https://render.githubusercontent.com/render/math?math=%5Cfrac%7BOsc%5C%20Freq%7D%7B32%20%5Ctimes%20%5B65536%20-%20(RCAP2H%2CRCAP2L)%5D%7D%0D"></div>
+
 <p>为了获得RCAP2H和RCAP2L的重载值，上述公式可以改写为：</p>
-<div class="arithmatex">
-<div class="MathJax_Preview">
+<!-- $$
 RACP2H,RCA2L = 65536 - \frac{Osc\ Freq}{32 \times Baud\ Rate}
-</div>
-<script type="math/tex; mode=display">
-RACP2H,RCA2L = 65536 - \frac{Osc\ Freq}{32 \times Baud\ Rate}
-</script>
-</div>
+$$ -->
+
+<div align="center"><img style="background: white;" src="https://render.githubusercontent.com/render/math?math=RACP2H%2CRCA2L%20%3D%2065536%20-%20%5Cfrac%7BOsc%5C%20Freq%7D%7B32%20%5Ctimes%20Baud%5C%20Rate%7D%0D"></div>
+
 <h2 id="2_2">模式2中的串行端口。<a class="headerlink" href="#2_2" title="Permanent link">&para;</a></h2>
-<p>在这种模式下，波特率是固定的，是振荡器频率的（/32）或（/64），取决于PCON寄存器中SMOD位的值。在这种模式下，不使用任何定时器，时钟来自内部的 2 相时钟。
-SMOD = 1, Baud Rate = 1/32 Osc Freq.
-SMOD = 0, Baud Rate = 1/64 Osc Freq.
-要设置SMOD位。ORL PCON,ý 80H。PCON的地址是87H。</p>
+<p>在这种模式下，波特率是固定的，是振荡器频率的（/32）或（/64），取决于PCON寄存器中SMOD位的值。在这种模式下，不使用任何定时器，时钟来自内部的 2 相时钟。<br />
+SMOD = 1, Baud Rate = 1/32 Osc Freq.<br />
+SMOD = 0, Baud Rate = 1/64 Osc Freq.<br />
+要设置SMOD位。ORL PCON,#80H。PCON的地址是87H。  </p>
 <h2 id="3">模式3下的串行端口。<a class="headerlink" href="#3" title="Permanent link">&para;</a></h2>
 <p>模式3中的波特率是可变的，其设置与模式1中完全相同。</p>
 
