@@ -41,6 +41,7 @@ MOV    @R0,#0BBH
 ### 特殊功能寄存器  
 表 1 包含了所有 SFR 及其地址的列表。  
 对比表 1 和图 5 可以看出，所有可寻址的字节和位的 SFR 都位于图 5 中的第一列(可以被8整除)。  
+
 |符号 (Symbol）|名称（Name）                                   |地址（Address）|
 |--------------|----------------------------------------------|---------------|
 |*ACC          |累加器（Accumulator）                          |0E0H           |
@@ -155,7 +156,8 @@ IDL     空闲模式位（idle Mode bit）。设置这个位激活 80C51BH 中�
 >ITx = 1 边沿触发（transition activated，有人也说跳变触发），实际上是下降沿触发（负跳变触发）
 
 ### IE 中断使能寄存器（INTERRUPT ENABLE REGISTER），可位寻址
-如果位为 0，则禁用相应的中断。如果位是 1，则启用相应的中断。
+如果位为 0，则禁用相应的中断。如果位是 1，则启用相应的中断。   
+
 |EA|——|ET2|ES|ET1|EX1|ET0|EX0|
 |--|--|---|--|---|---|---|---|
 
@@ -185,6 +187,7 @@ EX0   IE.0    启用或禁用外部中断（External Interrupt 0）
 ### 级别内优先级 (PRIORITY WITHIN LEVEL)
 级别内的优先级只是为了解决同一优先级的同时请求。  
 从高到低，中断源列举如下：  
+
 + IE0（External Interrupt 0 edge flag，外部中断 0 边沿标志，位于 TCON 寄存器 ）  
 + TF0（Timer 0 Overflow Flag，计时器 0 溢出标志，位于 TCON 寄存器 ）
 + IE1（External Interrupt 1 edge flag，外部中断 1 边沿标志，位于 TCON 寄存器）  
@@ -193,7 +196,8 @@ EX0   IE.0    启用或禁用外部中断（External Interrupt 0）
 + TF2 或 EXF2（Timer 2 Overflow Flag/Timer 2 External Flag，计时器 2 溢出/外部标志位，位于 T2CON 寄存器，仅 8052 可用）
 
 ## IP （Interrupt Priority Register）中断优先级寄存器，可位寻址
-如果该位为 0，相应的中断具有较低的优先级，如果该位为 1，相应的中断具有较高的优先级。
+如果该位为 0，相应的中断具有较低的优先级，如果该位为 1，相应的中断具有较高的优先级。  
+
 |——|——|PT2|PS|PT1|PX1|PT0|PX0|
 |--|--|---|--|---|---|---|---|
 
@@ -581,7 +585,8 @@ TI      SCON. 1      发送中断标志（Transmit interrupt flag）。由硬件
 RI      SCON. 0      接收中断标志（Receive interrupt flag）。在模式0中的第8位时间结束时由硬件设置，在其他模式中的停止位时间的一半时由硬件设置。在其他模式下，在停止位时间的一半时由硬件设置（除了见SM2）。必须由软件清除。
 ```
 
-NOTE 1:
+NOTE 1:  
+
 |SM0|SM1|模式|    描述    |波特率(Baud Rate)|
 |---|---|----|------------|-----------------|
 | 0 | 0 | 0  |  切换寄存器 | Fosc./12        |
@@ -639,17 +644,21 @@ NOTE 1:
 ### 模式 0 的串口（Serial Port in Mode 0）:
 模式 0 有一个固定的波特率，是振荡器频率的 1/12。要在这种模式下运行串口，不需要设置任何的 定时器/计数器都不需要被设置。只有 SCON 寄存器需要被定义。
 
-$$
+<!-- $$
 Baud\ Rate = \frac{Osc\ Freq}{12}
-$$
+$$ --> 
+
+<div align="center"><img style="background: white;" src="https://render.githubusercontent.com/render/math?math=Baud%5C%20Rate%20%3D%20%5Cfrac%7BOsc%5C%20Freq%7D%7B12%7D%0D"></div>
 
 ### 模式 1 的串口（Serial Port in Mode 0）:
 模式1有一个可变的波特率。波特率可以由定时器1或定时器2产生（仅8052）。
 要用于此用途，定时器1被用于模式2（自动重载）。请参考本章的定时器设置部分。
 
-$$
+<!-- $$
 \frac{(K \times Oscillator\ Freq.)}{32 \times 12 \times [256 - (TH1)]}
-$$
+$$ --> 
+
+<div align="center"><img style="background: white;" src="https://render.githubusercontent.com/render/math?math=%5Cfrac%7B(K%20%5Ctimes%20Oscillator%5C%20Freq.)%7D%7B32%20%5Ctimes%2012%20%5Ctimes%20%5B256%20-%20(TH1)%5D%7D%0D"></div>
 
 TH1 必须是一个整数值。将 TH1 四舍五入(Rounding off)到最接近的整数可能不会产生所需的波特率。在这种情况下，用户可能不得不选择另一种晶体频率。
 
@@ -659,27 +668,33 @@ TH1 必须是一个整数值。将 TH1 四舍五入(Rounding off)到最接近的
 
 为此，必须在波特率产生模式下使用定时器2。请参考本章的定时器2设置表。如果定时器2通过引脚T2（P1.0）进行时钟控制，则波特率为：
 
-$$
+<!-- $$
 Baud\ Rate = \frac{Timer\ 2 \ Overflow\ Freq}{16}
-$$
+$$ --> 
+
+<div align="center"><img style="background: white;" src="https://render.githubusercontent.com/render/math?math=Baud%5C%20Rate%20%3D%20%5Cfrac%7BTimer%5C%202%20%5C%20Overflow%5C%20Freq%7D%7B16%7D%0D"></div>
 
 而如果是内部时钟，那么波特率就是:
 
-$$
+<!-- $$
 \frac{Osc\ Freq}{32 \times [65536 - (RCAP2H,RCAP2L)]}
-$$
+$$ --> 
+
+<div align="center"><img style="background: white;" src="https://render.githubusercontent.com/render/math?math=%5Cfrac%7BOsc%5C%20Freq%7D%7B32%20%5Ctimes%20%5B65536%20-%20(RCAP2H%2CRCAP2L)%5D%7D%0D"></div>
 
 为了获得RCAP2H和RCAP2L的重载值，上述公式可以改写为：
 
-$$
+<!-- $$
 RACP2H,RCA2L = 65536 - \frac{Osc\ Freq}{32 \times Baud\ Rate}
-$$
+$$ --> 
+
+<div align="center"><img style="background: white;" src="https://render.githubusercontent.com/render/math?math=RACP2H%2CRCA2L%20%3D%2065536%20-%20%5Cfrac%7BOsc%5C%20Freq%7D%7B32%20%5Ctimes%20Baud%5C%20Rate%7D%0D"></div>
 
 ## 模式2中的串行端口。
-在这种模式下，波特率是固定的，是振荡器频率的（/32）或（/64），取决于PCON寄存器中SMOD位的值。在这种模式下，不使用任何定时器，时钟来自内部的 2 相时钟。
-SMOD = 1, Baud Rate = 1/32 Osc Freq.
-SMOD = 0, Baud Rate = 1/64 Osc Freq.
-要设置SMOD位。ORL PCON,ý 80H。PCON的地址是87H。
+在这种模式下，波特率是固定的，是振荡器频率的（/32）或（/64），取决于PCON寄存器中SMOD位的值。在这种模式下，不使用任何定时器，时钟来自内部的 2 相时钟。  
+SMOD = 1, Baud Rate = 1/32 Osc Freq.  
+SMOD = 0, Baud Rate = 1/64 Osc Freq.  
+要设置SMOD位。ORL PCON,#80H。PCON的地址是87H。  
 
 ## 模式3下的串行端口。
 模式3中的波特率是可变的，其设置与模式1中完全相同。
