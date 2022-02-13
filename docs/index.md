@@ -1,17 +1,3 @@
-# Welcome to MkDocs
+# nyatorch's Wiki
+参考 [Noodlefighter](https://noodlefighter.com/posts/d1b9/) 的教程照葫芦画瓢搭起来的 Wiki，用来当笔记本用了。有备份需要的文章可能也会放在这里。
 
-For full documentation visit [mkdocs.org](https://www.mkdocs.org).
-
-## Commands
-
-* `mkdocs new [dir-name]` - Create a new project.
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs -h` - Print help message and exit.
-
-## Project layout
-
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
