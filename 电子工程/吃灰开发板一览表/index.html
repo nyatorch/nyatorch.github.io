@@ -328,8 +328,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#esp-wroom-32" class="md-nav__link">
-    ESP WROOM 32
+  <a href="#esp-wroom-32nrnd" class="md-nav__link">
+    ESP WROOM 32（不推荐用于新设计，NRND）
   </a>
   
 </li>
@@ -865,8 +865,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#esp-wroom-32" class="md-nav__link">
-    ESP WROOM 32
+  <a href="#esp-wroom-32nrnd" class="md-nav__link">
+    ESP WROOM 32（不推荐用于新设计，NRND）
   </a>
   
 </li>
@@ -921,13 +921,17 @@
 <p>官方版本<a href="https://www.arduino.cc/en/uploads/Main/Arduino_Nano-Rev3.2-SCH.pdf">电路图</a></p>
 </blockquote>
 <ul>
-<li>Atmel ATmega328P-MU QFN32</li>
+<li>Atmel ATmega328P-MU QFN32<ul>
 <li>32KB Flash</li>
 <li>1KB EEPROM</li>
 <li>2KB SRAM</li>
 <li>外置村田16M 3213 3脚无源晶振</li>
-<li>CH340G USB转串口芯片</li>
+</ul>
+</li>
+<li>CH340G USB转串口芯片<ul>
 <li>外置12M晶振</li>
+</ul>
+</li>
 </ul>
 <h2 id="arduino-uno-r3">Arduino Uno R3<a class="headerlink" href="#arduino-uno-r3" title="Permanent link">&para;</a></h2>
 <blockquote>
@@ -987,8 +991,14 @@
 <p>买来学 CS107e 的，结果摸了</p>
 </blockquote>
 <ul>
-<li>BCM2835 @700Mhz ARM1176JZF-S</li>
-<li>K4P26324ED 256M LPDDR2 POP封装（跟CPU贴贴了）</li>
+<li>BCM2835 @700Mhz<ul>
+<li>ARM1176JZF-S</li>
+</ul>
+</li>
+<li>K4P26324ED 256M LPDDR2 <ul>
+<li>POP 封装，跟 CPU 贴贴了</li>
+</ul>
+</li>
 <li>1 x USB2.0</li>
 <li>1 x MicroSD</li>
 <li>40pin GPIO</li>
@@ -1018,9 +1028,29 @@
 </ul>
 <h2 id="esp32-c3-3-pcs">合宙 ESP32 C3 （3 pcs）<a class="headerlink" href="#esp32-c3-3-pcs" title="Permanent link">&para;</a></h2>
 <ul>
-<li>乐鑫 ESP32-C3 芯片（不带 Flash 版本，晶圆版本为 3，可以使用 Jtag 调试，道听途说安信可好像有使用 Jtag 调试的晶圆版本）</li>
-<li>40M 晶振</li>
-<li>MX25L3233F 32MBit Flash</li>
+<li>乐鑫 ESP32-C3 芯片<ul>
+<li>32 位 RISC-V 单核处理器，主频高达 160 MHz</li>
+<li>CoreMark® 分数：<ul>
+<li>– 单核 160 MHz：407.22 CoreMark；2.55 CoreMark/MHz</li>
+</ul>
+</li>
+<li>384 KB ROM</li>
+<li>400 KB SRAM（其中 16 KB 专用于 cache）</li>
+<li>8 KB RTC SRAM</li>
+<li>嵌入式 flash（不同型号有差异，详见章节 1 产品型号对比）</li>
+<li>SPI、Dual SPI、Quad SPI、QPI 接口外接多个flash</li>
+<li>通过 cache 加速 flash 访问</li>
+<li>支持 flash 在电路编程 (ICP)</li>
+<li>集成 2.4G WiFi</li>
+<li>集成 Bluetooth 5.0</li>
+</ul>
+</li>
+<li>对于这块开发板：<ul>
+<li>合宙使用的晶圆版本为为 3，可以使用 Jtag 调试（道听途说安信可使用过晶圆版本为 2 的，无法使用Jtag）</li>
+<li>外置 40M 晶振</li>
+<li>无片上 Flash 版本，外置 MX25L3233F 32MBit Flash</li>
+</ul>
+</li>
 <li>沁恒 CH343P USB转串口芯片</li>
 <li>封装为 SOT23-5 的 3.3V LDO，丝印为 <code>LV2X:</code> </li>
 <li>封装为 SOT363 的 双三极管，丝印为 <code>MVS</code> （其中 S 与 MV 方向垂直）</li>
@@ -1031,13 +1061,61 @@
 </ul>
 <h2 id="air-105">合宙 Air 105 核心板<a class="headerlink" href="#air-105" title="Permanent link">&para;</a></h2>
 <ul>
-<li>实际上是兆讯恒达 MH1903S</li>
-<li>Cortex M4 安全核，204Mhz 主频</li>
+<li>实际上是兆讯恒达 MH1903S<ul>
+<li>Cortex M4F 安全核，204Mhz 主频</li>
+</ul>
+</li>
 <li>抗故障注入攻击</li>
 </ul>
-<h2 id="esp-wroom-32">ESP WROOM 32<a class="headerlink" href="#esp-wroom-32" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p>手册上说是 Arm SecurCore SC300，但是 SC300 基于 Cortex M3 且不可能带 FPU，Jtag 读出的信息也证实了其确实为 Cotex M4</p>
+</blockquote>
+<h2 id="esp-wroom-32nrnd">ESP WROOM 32（不推荐用于新设计，NRND）<a class="headerlink" href="#esp-wroom-32nrnd" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p><a href="https://www.espressif.com/sites/default/files/documentation/esp32-wroom-32_datasheet_cn.pdf">官方手册</a></p>
+</blockquote>
+<ul>
+<li>内置 ESP32-D0WDQ6 双核 无嵌入式 Flash</li>
+<li>ESP32 搭载低功耗 Xtensa® LX6 32-bit 单/双核处理器，具有以下特性：<ul>
+<li>7 级流水线架构，支持高达 240 MHz 的时钟频率（除 ESP32-S0WD 为 160 MHz）</li>
+<li>16-bit/24-bit 指令集提供高代码密度</li>
+<li>支持浮点单元 (FPU)</li>
+<li>支持 DSP 指令，例如 32-bit 乘法器、32-bit 除法器和 40-bit 累加乘法器 (MAC)</li>
+<li>支持来自约 70 个中断源的 32 个中断向量</li>
+</ul>
+</li>
+<li>单/双核处理器接口包括：<ul>
+<li>Xtensa RAM/ROM 指令和数据接口</li>
+<li>用于快速访问外部寄存器的 Xtensa 本地存储接口</li>
+<li>具有内外中断源的中断接口</li>
+<li>用于调试的 JTAG 接口</li>
+</ul>
+</li>
+<li>ESP32 片上存储包括：<ul>
+<li>448 KB 的 ROM，用于程序启动和内核功能调用</li>
+<li>用于数据和指令存储的 520 KB 片上 SRAM</li>
+<li>RTC 快速存储器，为 8 KB 的 SRAM，可以在 Deep-sleep 模式下 RTC 启动时用于数据存储以及被主 CPU 访问</li>
+<li>RTC 慢速存储器，为 8 KB 的 SRAM，可以在 Deep-sleep 模式下被协处理器访问</li>
+<li>1 Kbit 的 eFuse，其中 256 bit 为系统专用（MAC 地址和芯片设置）; 其余 768 bit 保留给用户程序, 这些程序包括 flash 加密和芯片 ID</li>
+<li>嵌入式 flash（ESP32 芯片是否有嵌入式 flash，以及嵌入式 flash 的大小与芯片型号有关。）</li>
+</ul>
+</li>
+<li>集成 2.4G WiFi</li>
+<li>集成 Bluetooth 4.2</li>
+</ul>
 <h2 id="stm32f401ccu6">STM32F401CCU6 核心板<a class="headerlink" href="#stm32f401ccu6" title="Permanent link">&para;</a></h2>
 <h2 id="w806">联盛德 W806 核心板<a class="headerlink" href="#w806" title="Permanent link">&para;</a></h2>
+<ul>
+<li>联盛德 W800<ul>
+<li>集成平头哥 XT804 CPU 处理器<ul>
+<li>平头哥半导体 C-sky V2 指令集</li>
+</ul>
+</li>
+<li>最高工作频率240MHz</li>
+<li>内置DSP、浮点运算单元与TEE安全引擎 </li>
+</ul>
+</li>
+</ul>
 <h2 id="stc8a8k64s4a12">STC8A8K64S4A12 核心板<a class="headerlink" href="#stc8a8k64s4a12" title="Permanent link">&para;</a></h2>
 <p>请参考带大火炉的STC手册</p>
 <h2 id="nrf52840-usb-dongle">NRF52840 USB dongle<a class="headerlink" href="#nrf52840-usb-dongle" title="Permanent link">&para;</a></h2>

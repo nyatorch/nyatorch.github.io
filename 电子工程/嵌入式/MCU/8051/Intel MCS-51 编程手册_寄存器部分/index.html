@@ -1527,13 +1527,43 @@ OV    PSW.2    溢出标志（Overflow Flag）
 
 P     PSW.0    奇偶校验标志，由硬件在每个指令周期内设置/清除，以指示累加器中的奇数/偶数的&#39;1&#39;位。
 </code></pre></div>
-附注1： 由 RS0 和 RS1 的值选择相应的寄存器组。<br />
-|RS1|RS0|寄存器组（Register Bank）|  地址 |
-|:-:|:-:|:----------------------:|:-----:|
-| 0 | 0 |           0            |00H-07H|
-| 0 | 1 |           1            |08H-0FH|
-| 1 | 0 |           2            |10H-17H|
-| 1 | 1 |           3            |18H-1FH|</p>
+附注1： 由 RS0 和 RS1 的值选择相应的寄存器组。  </p>
+<table>
+<thead>
+<tr>
+<th align="center">RS1</th>
+<th align="center">RS0</th>
+<th align="center">寄存器组（Register Bank）</th>
+<th align="center">地址</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">00H-07H</td>
+</tr>
+<tr>
+<td align="center">0</td>
+<td align="center">1</td>
+<td align="center">1</td>
+<td align="center">08H-0FH</td>
+</tr>
+<tr>
+<td align="center">1</td>
+<td align="center">0</td>
+<td align="center">2</td>
+<td align="center">10H-17H</td>
+</tr>
+<tr>
+<td align="center">1</td>
+<td align="center">1</td>
+<td align="center">3</td>
+<td align="center">18H-1FH</td>
+</tr>
+</tbody>
+</table>
 <h3 id="pcon-power-control-register">PCON 电源控制寄存器（POWER CONTROL REGISTER），<strong>不可位寻址</strong><a class="headerlink" href="#pcon-power-control-register" title="Permanent link">&para;</a></h3>
 <table>
 <thead>
