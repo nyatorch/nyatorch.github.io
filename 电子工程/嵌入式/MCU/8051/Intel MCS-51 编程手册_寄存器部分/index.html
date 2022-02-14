@@ -1574,7 +1574,7 @@ MOV    @R0,#0BBH
 </blockquote>
 <h3 id="_5">直接和间接寻址区域<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
 <p>可以通过直接和间接寻址访问的128字节的RAM可以分为3个部分（工作寄存器组区、位寻址区、数据缓冲区），如下图所示。
-<img alt="直接和间接寻址的 128 字节" src="../images/ram_area.png" /><br />
+<img alt="直接和间接寻址的 128 字节" src="./images/ram_area.png" /><br />
 1. <strong>寄存器组（Register Banks） 0-3</strong>：位置从 0 到 1FH （32字节）。ASM-51 和以及复位后的设备默认为组0（Bank 0），使用其他的寄存器组必须在软件（参考 <em>MCS-51 Micro Assembler User's Guide</em>）每个寄存器组包含了 8 个单字节寄存器，从 0 到 7 。<br />
 复位初始化栈指针（Stack Pointer，SP）到位置 07H 并且他被递增一次，从位置 08H 开始，，这是第二个寄存器组的第一个寄存器（RO）。因此，为了使用一个以上的寄存器组，SP应该被初始化到RAM中不用于数据存储的不同位置（即RAM的较高部分）。<br />
 2. <strong>位寻址区（Bit Addressable Area）</strong>：该段有16个字节，20H-2FH。该段的128位中的每一位都可以被直接寻址（0-7FH）。<br />
@@ -1749,12 +1749,12 @@ MOV    @R0,#0BBH
 <td></td>
 </tr>
 <tr>
-<td><img alt="复位后 SFR 的内容" src="../images/SFRs_init.png" /></td>
+<td><img alt="复位后 SFR 的内容" src="./images/SFRs_init.png" /></td>
 <td></td>
 <td></td>
 </tr>
 <tr>
-<td><img alt="特殊功能寄存器的内存映射图" src="../images/SFR_mem_map.png" /></td>
+<td><img alt="特殊功能寄存器的内存映射图" src="./images/SFR_mem_map.png" /></td>
 <td></td>
 <td></td>
 </tr>
