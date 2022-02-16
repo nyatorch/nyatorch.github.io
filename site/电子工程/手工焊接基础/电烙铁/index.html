@@ -13,7 +13,7 @@
     
     
       
-        <title>使用电烙铁进行基础的手工焊接 - nyatorch's Wiki</title>
+        <title>电烙铁 - nyatorch's Wiki</title>
       
     
     
@@ -95,7 +95,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              使用电烙铁进行基础的手工焊接
+              电烙铁
             
           </span>
         </div>
@@ -557,9 +557,61 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          电烙铁
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
-        使用电烙铁进行基础的手工焊接
+        电烙铁
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    选择合适的电烙铁
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    焊接视频教程
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    关于无铅焊锡
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#qfn" class="md-nav__link">
+    焊接QFN封装：
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -938,6 +990,42 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    选择合适的电烙铁
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    焊接视频教程
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    关于无铅焊锡
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#qfn" class="md-nav__link">
+    焊接QFN封装：
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -949,12 +1037,40 @@
               
                 
 
-<h1 id="_1">使用电烙铁进行基础的手工焊接<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
-<h1 id="_2">视频教程<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h1>
+<h1 id="_1">电烙铁<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<h2 id="_2">选择合适的电烙铁<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<ul>
+<li>不到百元的 T12 （有的甚至支持PD供电），如果自制成本也不算高 <del>（但是制作烙铁需要你有个烙铁</del></li>
+<li>文宇WY815（这个是高频焊台）</li>
+</ul>
+<h2 id="_3">焊接视频教程<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<ul>
+<li>
 <p><a href="https://www.bilibili.com/video/BV1at4y1k7EY">PACE基础焊接教程</a></p>
 <blockquote>
 <p>其实它的另一个名字，是<a href="http://www.sal.wisc.edu/docs/Soldering%20Basics.pdf">NASA焊接基础</a></p>
 </blockquote>
+</li>
+<li>
+<p><a href="https://www.bilibili.com/video/BV11Z4y1g7Lc">手工焊接的七大恶习</a>  </p>
+</li>
+<li><a href="https://workmanship.nasa.gov/lib/insp/2%20books/frameset.html">NASA的焊接标准</a>  (后来 NASA 转而采用 IPC 规范了)  </li>
+</ul>
+<p>Youtube 上面也有很多高质量的焊接教程</p>
+<h2 id="_4">关于无铅焊锡<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<ul>
+<li>如果选择使用无铅焊锡，建议使用SAC305(SnAg3Cu0.5)组分焊料<blockquote>
+<p>含银是为了确保焊接强度（含铋或者只含铜强度会比较差），而不是什么导电性更好 <del>更 HiFi</del> 之类的<br />
+见 NASA 关于无铅焊料的<a href="https://nepp.nasa.gov/files/10981/NASA%20Lead-Free%20Solder%20BOK%20Appendices%20May%202005%20(2).pdf">文档</a></p>
+</blockquote>
+</li>
+</ul>
+<h2 id="qfn">焊接QFN封装：<a class="headerlink" href="#qfn" title="Permanent link">&para;</a></h2>
+<ul>
+<li>肉眼难以检查焊接是否良好</li>
+<li>底部热焊盘锡量过多容易造成连锡</li>
+<li>选择背面带洞的封装可以便于烙铁进行焊接</li>
+</ul>
 
               
             </article>
