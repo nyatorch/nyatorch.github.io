@@ -442,6 +442,20 @@
               
   
   
+  
+    <li class="md-nav__item">
+      <a href="../8051Tutorial/" class="md-nav__link">
+        8051Tutorial
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
     
   
   
@@ -1649,7 +1663,7 @@ MOV    @R0,#0BBH
 </blockquote>
 <h3 id="_5">直接和间接寻址区域<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
 <p>可以通过直接和间接寻址访问的128字节的RAM可以分为3个部分（工作寄存器组区、位寻址区、数据缓冲区），如下图所示。
-<img alt="直接和间接寻址的 128 字节" src="./images/ram_area.png" /><br />
+<img alt="直接和间接寻址的 128 字节" src="../images/ram_area.png" /><br />
 1. <strong>寄存器组（Register Banks） 0-3</strong>：位置从 0 到 1FH （32字节）。ASM-51 和以及复位后的设备默认为组0（Bank 0），使用其他的寄存器组必须在软件（参考 <em>MCS-51 Micro Assembler User's Guide</em>）每个寄存器组包含了 8 个单字节寄存器，从 0 到 7 。<br />
 复位初始化栈指针（Stack Pointer，SP）到位置 07H 并且他被递增一次，从位置 08H 开始，，这是第二个寄存器组的第一个寄存器（RO）。因此，为了使用一个以上的寄存器组，SP应该被初始化到RAM中不用于数据存储的不同位置（即RAM的较高部分）。<br />
 2. <strong>位寻址区（Bit Addressable Area）</strong>：该段有16个字节，20H-2FH。该段的128位中的每一位都可以被直接寻址（0-7FH）。<br />
@@ -1824,12 +1838,12 @@ MOV    @R0,#0BBH
 <td></td>
 </tr>
 <tr>
-<td><img alt="复位后 SFR 的内容" src="./images/SFRs_init.png" /></td>
+<td><img alt="复位后 SFR 的内容" src="../images/SFRs_init.png" /></td>
 <td></td>
 <td></td>
 </tr>
 <tr>
-<td><img alt="特殊功能寄存器的内存映射图" src="./images/SFR_mem_map.png" /></td>
+<td><img alt="特殊功能寄存器的内存映射图" src="../images/SFR_mem_map.png" /></td>
 <td></td>
 <td></td>
 </tr>
@@ -1877,7 +1891,7 @@ OV    PSW.2    溢出标志（Overflow Flag）
 
 ——    PSW.1    用户可定义标志（User definable flag） 
 
-P     PSW.0    奇偶校验标志，由硬件在每个指令周期内设置/清除，以指示累加器中的奇数/偶数的&#39;1&#39;位。
+P     PSW.0    奇偶校验标志（Parity flag），由硬件在每个指令周期内设置/清除，以指示累加器中的奇数/偶数的&#39;1&#39;位。
 </code></pre></div>
 附注1： 由 RS0 和 RS1 的值选择相应的寄存器组。  </p>
 <table>
@@ -2693,7 +2707,7 @@ SMOD = 0, Baud Rate = 1/64 Osc Freq.<br />
     <nav class="md-footer__inner md-grid" aria-label="页脚">
       
         
-        <a href="../8051/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 8051 笔记" rel="prev">
+        <a href="../8051Tutorial/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 8051Tutorial" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -2702,7 +2716,7 @@ SMOD = 0, Baud Rate = 1/64 Osc Freq.<br />
               <span class="md-footer__direction">
                 上一页
               </span>
-              8051 笔记
+              8051Tutorial
             </div>
           </div>
         </a>
