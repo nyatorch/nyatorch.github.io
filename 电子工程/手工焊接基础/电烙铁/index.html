@@ -609,6 +609,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../%E5%85%8D%E7%84%8A%E6%8E%A5%E5%B7%A5%E8%89%BA/" class="md-nav__link">
+        免焊接工艺
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../%E7%83%AD%E9%A3%8E%E6%9E%AA/" class="md-nav__link">
         热风枪
       </a>
@@ -672,20 +686,27 @@
       
         <li class="md-nav__item">
   <a href="#_4" class="md-nav__link">
-    关于无铅焊锡
+    免焊接工艺
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#_5" class="md-nav__link">
-    焊接基础
+    关于无铅焊锡
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#_6" class="md-nav__link">
+    焊接基础
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
     手工焊接的七大恶习：
   </a>
   
@@ -1108,20 +1129,27 @@
       
         <li class="md-nav__item">
   <a href="#_4" class="md-nav__link">
-    关于无铅焊锡
+    免焊接工艺
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#_5" class="md-nav__link">
-    焊接基础
+    关于无铅焊锡
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#_6" class="md-nav__link">
+    焊接基础
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
     手工焊接的七大恶习：
   </a>
   
@@ -1143,7 +1171,7 @@
 <h1 id="_1">电烙铁<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
 <h2 id="_2">选择合适的电烙铁<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <ul>
-<li>不到百元的 T12 （有的甚至支持PD供电），如果自制成本也不算高 <del>（但是制作烙铁需要你有个烙铁</del></li>
+<li>几十块钱的 DIY T12 （有的甚至支持PD供电），如果自制成本也不算高 <del>（但是制作烙铁需要你有个烙铁</del></li>
 <li>文宇WY815（这个是高频焊台）</li>
 </ul>
 <h2 id="_3">焊接视频教程<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
@@ -1161,7 +1189,16 @@
 <li><a href="https://workmanship.nasa.gov/lib/insp/2%20books/frameset.html">NASA的焊接标准</a>  (后来 NASA 转而采用 IPC 规范了)  </li>
 </ul>
 <p>Youtube 上面也有很多高质量的焊接教程</p>
-<h2 id="_4">关于无铅焊锡<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<h2 id="_4">免焊接工艺<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<p>焊接是良好固定和连接电子元件的最优解，但有些情况下并不适合焊接<br />
+如果板子上有排针，除了常见的杜邦线外也可以选择很retro的绕线工艺，<br />
+如果完全不想让板子沾锡（比如某些 usb dongle版）<br />
+可以选择购置或自制测试针烧录夹<br />
+可以选择直接用2.54mm排针插着，并不需要焊接<br />
+<img alt="是的，这样也能被识别" src="../images/magic.jpg" /><br />
+例如图中就仅仅是把排针和杜邦线放在了板子上，没有进行任何的焊接，板子还是拿在手上的，既便如此，仍然完全能被 pyOCD 正常识别<br />
+如果不识别怎么办？碰一碰排针，期待有魔法发生。  </p>
+<h2 id="_5">关于无铅焊锡<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
 <ul>
 <li>如果选择使用无铅焊锡，建议使用SAC305(SnAg3Cu0.5)组分焊料<blockquote>
 <p>含银是为了确保焊接强度（含铋或者只含铜强度会比较差），而不是什么导电性更好 <del>更 HiFi</del> 之类的<br />
@@ -1169,7 +1206,7 @@
 </blockquote>
 </li>
 </ul>
-<h2 id="_5">焊接基础<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<h2 id="_6">焊接基础<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
 <p>电子焊接（软钎焊）是对电子元件进行可靠的连接和固定的方式，其原理是浸润作用<br />
 焊锡是一种合金，对于有铅焊锡来说，其成分是锡和铅，对于无铅焊料来说通常是锡，银和铜，低熔点的焊锡则含有铋
 不同成分，相同成分的不同比例会让焊锡具有不同的特性。    <br />
@@ -1177,7 +1214,7 @@ Sn63Pb37的焊料是易融焊料，当达到熔点时焊锡立刻就变成了液
 当焊锡融化时，热的助焊剂会清除电路板铜层的氧化膜，<br />
 而浸润作用则使焊锡在铜层表面形成一种既不是铜和锡组成的新的合金，线路板因此而沾锡<br />
 当焊料再一次冷却并凝固，元器件就可以被焊接</p>
-<h2 id="_6">手工焊接的七大恶习：<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
+<h2 id="_7">手工焊接的七大恶习：<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
 <ul>
 <li>用力过大</li>
 <li>焊料热桥不合适</li>
