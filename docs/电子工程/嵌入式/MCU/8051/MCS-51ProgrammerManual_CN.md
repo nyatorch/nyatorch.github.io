@@ -539,7 +539,7 @@ CP/RL2  T2CON.0 捕获/加载标志。当设置时，如果 EXEN2 = 1，捕获�
     </style>
     <tr>
         <td rowspan="3">模式</td>
-        <td colspan="2">T2CON</td>
+        <td colspan="3">T2CON</td>
     </tr>
     <tr> 
         <td>INTERNAL<br> CONTROL(NOTE 1)</td>

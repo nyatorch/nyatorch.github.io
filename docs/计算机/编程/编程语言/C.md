@@ -348,10 +348,10 @@ int main (int argc, char** argv)
     break;
   }
   /*
-    Using "goto" in C
+    在 C 语言中使用 goto
   */
   typedef enum { false, true } bool;
-  // for C don't have bool as data type before C99 :(
+  // 因为在C99以前，布尔类型是不存在的，哭哭 :(
   bool disaster = false;
   int i, j;
   for(i=0; i<100; ++i)
@@ -360,32 +360,32 @@ int main (int argc, char** argv)
     if((i + j) >= 150)
         disaster = true;
     if(disaster)
-        goto error;  // exit both for loops
+        goto error;  // 两个循环都会被直接跳出
   }
-  error: // this is a label that you can "jump" to with "goto error;"
+  error: // 这是一个标签（label）你可以通过"goto error;" 跳转到这里
   printf("Error occurred at i = %d & j = %d.\n", i, j);
   /*
     https://ideone.com/GuPhd6
     this will print out "Error occurred at i = 51 & j = 99."
   */
   /*
-    it is generally considered bad practice to do so, except if
-    you really know what you are doing. See 
+    一般认为这样做是不好的，除非你真的知道你在做什么。
+    见 
     https://en.wikipedia.org/wiki/Spaghetti_code#Meaning
   */
 
   ///////////////////////////////////////
-  // Typecasting
+  // 类型转换
   ///////////////////////////////////////
 
-  // Every value in C has a type, but you can cast one value into another type
-  // if you want (with some constraints).
+  // C语言中的每一个值都有其自己的类型，但是你可以把一个值转换为另一个类型
+  // 如果你乐意的话 (有一些限制条件).
 
-  int x_hex = 0x01; // You can assign vars with hex literals
-                    // binary is not in the standard, but allowed by some
-                    // compilers (x_bin = 0b0010010110) 
+  int x_hex = 0x01; // 你可以给变量赋值16进制的字面值
+                    // 二进制并不在标准中, 但被某些编译器所允许
+                    //  (x_bin = 0b0010010110) 
 
-  // Casting between types will attempt to preserve their numeric values
+  // 类型之间的转换将试图保持它们的数字值
   printf("%d\n", x_hex); // => Prints 1
   printf("%d\n", (short) x_hex); // => Prints 1
   printf("%d\n", (char) x_hex); // => Prints 1
