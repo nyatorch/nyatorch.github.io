@@ -311,7 +311,7 @@ Java 编程语言定义了如下种类的变量：
 
 > 注：不要以为 letter 是英文字母，它包括中文！包括 `_￥` ， `中文` 和 `𝜃` 在内的变量名都是合法的，尽管这么干容易被同事打死
 > 
-> 我怎么知道一个 Unicode 字符是不是 Unicode letter， 参考 [这个地址](http://xahlee.info/comp/unicode_letter_character.html)
+> 关于判断一个 Unicode 字符 是否为 Unicode letter， 参考 [这个地址](http://xahlee.info/comp/unicode_letter_character.html)
 
 ### 基本数据类型（Primitive Data Types）
 
@@ -336,6 +336,7 @@ int gear = 1;
 当一个字段被声明时，并不总是需要赋值。已声明但未初始化的字段将被编译器设置为一个合理的默认值。一般来说，这个默认值将是零或空，这取决于数据类型。然而，依赖这样的默认值，通常被认为是不好的编程风格。
 
 下面的图表总结了上述数据类型的默认值。
+
 | 数据类型 | 默认值（对于字段） |
 |--------|-----------------|
 |  byte  |        0        |
@@ -348,8 +349,39 @@ int gear = 1;
 |  String (or any object)  |        null        |
 |boolean |       false     |
 
-#### 默认值
 局部变量略有不同；编译器永远不会给未初始化的局部变量分配一个默认值。如果你不能在声明的地方初始化你的局部变量，请确保在你试图使用它之前给它赋值。访问一个未初始化的局部变量将导致一个编译时错误。
 
-#### 字面量（literal）
+#### 2. 字面量（literal）
+你可能已经注意到了 new 关键字不呢个用于初始化一个基本类型变量。基本类型是编程语言内置的特殊数据类型。它们并不是由类创建的对象，一个字面量是一个固定值的源码表示，它在你的代码是直接表示而无需计算。
+
+```
+boolean result = true;
+char capitalC = 'C';
+byte b = 100;
+short s = 10000;
+int i = 100000;
+```
+
+#### 整数字面量（Integer Literals）
+如果一个整数字面量以 `L` 或 `l` 结尾，则其为 long 类型，否则为 int 类型。推荐使用大写 L 因为 小写的 l 极易与数字 1 混淆。
+
+整数字面量的值，byte short int 的值可由 int 字面量创建， 超出 int 范围的 long 类型的值可由 long 字面量创建，整数字面量可以用 10 进制 16 进制 或 二进制数制系统表示
+
+0x 表示十六进制数 0b 表示二进制数
+
+#### 浮点字面量（Floating-Point Literals）
+一个浮点字面量是如果以 F 或 f 结尾是 float 类型，否则为 double 类型（可选以 D 或 d 结尾）
+
+浮点类型也可以用 E 或 e 表示（用于科学计数法（scientific notation）），F 或 f （32位 float 字面量） 以及 D 或者 d（64位 double 字面量，默认的，而且通常省略不写）
+
+```
+double d1 = 123.4;
+// same value as d1, but in scientific notation
+double d2 = 1.234e2;
+float f1  = 123.4f;
+```
+
+#### 字符和字符串字面量（Character and String Literals）
+字符和字符串类型的字面量可能包含任何 Unicode (UTF-16) 字符。如果你的编辑器和文件系统允许，你在代码中直接使用这些字符，如果不行，你可以使用 “Unicode 转义字符（Unicode escape）” 例如 `'\u0108'` `"S\u00ED Se\u00Flor"` (西班牙语的 Sí Señor)。永远对字符字面量单引号（single quotes），对字符串字面量使用双引号（double quotes）Unicode 转义序列也可以用于程序的其他地方（比如字段名）而不只是字符或字符串字面量
+
 
