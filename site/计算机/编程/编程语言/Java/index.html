@@ -263,7 +263,7 @@
   
     <li class="md-nav__item">
       <a href="../../../../%E6%9D%82%E9%A1%B9/%E7%83%B9%E9%A5%AA%E5%9F%BA%E7%A1%80/%E7%83%A4%E9%B8%AD/" class="md-nav__link">
-        烤鸭教程
+        某群主的烤鸭奥义
       </a>
     </li>
   
@@ -1446,15 +1446,29 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    默认值
+  <a href="#2-literal" class="md-nav__link">
+    2. 字面量（literal）
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#literal" class="md-nav__link">
-    字面量（literal）
+  <a href="#integer-literals" class="md-nav__link">
+    整数字面量（Integer Literals）
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#floating-point-literals" class="md-nav__link">
+    浮点字面量（Floating-Point Literals）
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#character-and-string-literals" class="md-nav__link">
+    字符和字符串字面量（Character and String Literals）
   </a>
   
 </li>
@@ -1679,15 +1693,29 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    默认值
+  <a href="#2-literal" class="md-nav__link">
+    2. 字面量（literal）
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#literal" class="md-nav__link">
-    字面量（literal）
+  <a href="#integer-literals" class="md-nav__link">
+    整数字面量（Integer Literals）
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#floating-point-literals" class="md-nav__link">
+    浮点字面量（Floating-Point Literals）
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#character-and-string-literals" class="md-nav__link">
+    字符和字符串字面量（Character and String Literals）
   </a>
   
 </li>
@@ -1962,7 +1990,7 @@ int gear = 1;
 </ul>
 <blockquote>
 <p>注：不要以为 letter 是英文字母，它包括中文！包括 <code>_￥</code> ， <code>中文</code> 和 <code>𝜃</code> 在内的变量名都是合法的，尽管这么干容易被同事打死</p>
-<p>我怎么知道一个 Unicode 字符是不是 Unicode letter， 参考 <a href="http://xahlee.info/comp/unicode_letter_character.html">这个地址</a></p>
+<p>关于判断一个 Unicode 字符 是否为 Unicode letter， 参考 <a href="http://xahlee.info/comp/unicode_letter_character.html">这个地址</a></p>
 </blockquote>
 <h3 id="primitive-data-types">基本数据类型（Primitive Data Types）<a class="headerlink" href="#primitive-data-types" title="Permanent link">&para;</a></h3>
 <p>Java编程语言是静态类型的（statically-typed），必须首先声明。这包括说明变量的类型和名称，正如你已经看到的。</p>
@@ -1981,21 +2009,76 @@ int gear = 1;
 </ul>
 <h4 id="1">1.默认值<a class="headerlink" href="#1" title="Permanent link">&para;</a></h4>
 <p>当一个字段被声明时，并不总是需要赋值。已声明但未初始化的字段将被编译器设置为一个合理的默认值。一般来说，这个默认值将是零或空，这取决于数据类型。然而，依赖这样的默认值，通常被认为是不好的编程风格。</p>
-<p>下面的图表总结了上述数据类型的默认值。
-| 数据类型 | 默认值（对于字段） |
-|--------|-----------------|
-|  byte  |        0        |
-|  short |        0        |
-|  int   |        0        |
-|  long  |        0L       |
-|  float |        0.0f     |
-| double |        0.0d     |
-|  char  |    '\u0000'     |
-|  String (or any object)  |        null        |
-|boolean |       false     |</p>
-<h4 id="_4">默认值<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h4>
+<p>下面的图表总结了上述数据类型的默认值。</p>
+<table>
+<thead>
+<tr>
+<th>数据类型</th>
+<th>默认值（对于字段）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>byte</td>
+<td>0</td>
+</tr>
+<tr>
+<td>short</td>
+<td>0</td>
+</tr>
+<tr>
+<td>int</td>
+<td>0</td>
+</tr>
+<tr>
+<td>long</td>
+<td>0L</td>
+</tr>
+<tr>
+<td>float</td>
+<td>0.0f</td>
+</tr>
+<tr>
+<td>double</td>
+<td>0.0d</td>
+</tr>
+<tr>
+<td>char</td>
+<td>'\u0000'</td>
+</tr>
+<tr>
+<td>String (or any object)</td>
+<td>null</td>
+</tr>
+<tr>
+<td>boolean</td>
+<td>false</td>
+</tr>
+</tbody>
+</table>
 <p>局部变量略有不同；编译器永远不会给未初始化的局部变量分配一个默认值。如果你不能在声明的地方初始化你的局部变量，请确保在你试图使用它之前给它赋值。访问一个未初始化的局部变量将导致一个编译时错误。</p>
-<h4 id="literal">字面量（literal）<a class="headerlink" href="#literal" title="Permanent link">&para;</a></h4>
+<h4 id="2-literal">2. 字面量（literal）<a class="headerlink" href="#2-literal" title="Permanent link">&para;</a></h4>
+<p>你可能已经注意到了 new 关键字不呢个用于初始化一个基本类型变量。基本类型是编程语言内置的特殊数据类型。它们并不是由类创建的对象，一个字面量是一个固定值的源码表示，它在你的代码是直接表示而无需计算。</p>
+<div class="highlight"><pre><span></span><code>boolean result = true;
+char capitalC = &#39;C&#39;;
+byte b = 100;
+short s = 10000;
+int i = 100000;
+</code></pre></div>
+<h4 id="integer-literals">整数字面量（Integer Literals）<a class="headerlink" href="#integer-literals" title="Permanent link">&para;</a></h4>
+<p>如果一个整数字面量以 <code>L</code> 或 <code>l</code> 结尾，则其为 long 类型，否则为 int 类型。推荐使用大写 L 因为 小写的 l 极易与数字 1 混淆。</p>
+<p>整数字面量的值，byte short int 的值可由 int 字面量创建， 超出 int 范围的 long 类型的值可由 long 字面量创建，整数字面量可以用 10 进制 16 进制 或 二进制数制系统表示</p>
+<p>0x 表示十六进制数 0b 表示二进制数</p>
+<h4 id="floating-point-literals">浮点字面量（Floating-Point Literals）<a class="headerlink" href="#floating-point-literals" title="Permanent link">&para;</a></h4>
+<p>一个浮点字面量是如果以 F 或 f 结尾是 float 类型，否则为 double 类型（可选以 D 或 d 结尾）</p>
+<p>浮点类型也可以用 E 或 e 表示（用于科学计数法（scientific notation）），F 或 f （32位 float 字面量） 以及 D 或者 d（64位 double 字面量，默认的，而且通常省略不写）</p>
+<div class="highlight"><pre><span></span><code>double d1 = 123.4;
+// same value as d1, but in scientific notation
+double d2 = 1.234e2;
+float f1  = 123.4f;
+</code></pre></div>
+<h4 id="character-and-string-literals">字符和字符串字面量（Character and String Literals）<a class="headerlink" href="#character-and-string-literals" title="Permanent link">&para;</a></h4>
+<p>字符和字符串类型的字面量可能包含任何 Unicode (UTF-16) 字符。如果你的编辑器和文件系统允许，你在代码中直接使用这些字符，如果不行，你可以使用 “Unicode 转义字符（Unicode escape）” 例如 <code>'\u0108'</code> <code>"S\u00ED Se\u00Flor"</code> (西班牙语的 Sí Señor)。永远对字符字面量单引号（single quotes），对字符串字面量使用双引号（double quotes）Unicode 转义序列也可以用于程序的其他地方（比如字段名）而不只是字符或字符串字面量</p>
 
               
             </article>
