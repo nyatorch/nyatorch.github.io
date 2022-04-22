@@ -1423,6 +1423,47 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#naming" class="md-nav__link">
+    命名（Naming）：
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#primitive-data-types" class="md-nav__link">
+    基本数据类型（Primitive Data Types）
+  </a>
+  
+    <nav class="md-nav" aria-label="基本数据类型（Primitive Data Types）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    1.默认值
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    默认值
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#literal" class="md-nav__link">
+    字面量（literal）
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1612,6 +1653,47 @@
   <a href="#variables" class="md-nav__link">
     变量（Variables）
   </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#naming" class="md-nav__link">
+    命名（Naming）：
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#primitive-data-types" class="md-nav__link">
+    基本数据类型（Primitive Data Types）
+  </a>
+  
+    <nav class="md-nav" aria-label="基本数据类型（Primitive Data Types）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    1.默认值
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    默认值
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#literal" class="md-nav__link">
+    字面量（literal）
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -1860,11 +1942,60 @@ int gear = 1;
 <p>在 什么是对象 的部分已经介绍了字段，但你可能还有疑惑：命名一个字段的规则和惯例是什么，除了 int 还有哪些数据类型，如果字段没有被明确初始化，是否会被分配一个默认值？我们将在本课中探讨这些问题的答案，但在这之前，你必须先了解一些技术上的区别。在Java编程语言中，"字段 "和 "变量 "这两个词都被使用；这在新的开发者中是一个常见的混淆源，因为这两个词似乎都是指同一件事。</p>
 <p>Java 编程语言定义了如下种类的变量：</p>
 <ul>
-<li>实例变量（Instance Variables）（非静态字段，Non-Static Fields）</li>
-<li>类变量（Class Viriables）（静态字段，Static Fields）</li>
-<li>局部变量（Local Variables）</li>
-<li>参数（Parameters）</li>
+<li>实例变量（Instance Variables）（非静态字段，Non-Static Fields），技术上讲，对象存储其个体状态在“非静态字段”中，即，那些没有以 static 关键字声明的字段。非静态字段也称为实例变量，因为它们的值对每一个类中的实例（也就是对象）是唯一的（unique），一辆自行车的 currentSpeed 跟另一辆自行车的currrentSpeed 是独立的。</li>
+<li>类变量（Class Viriables）（静态字段，Static Fields）类变量是用 static 修饰符（modifier）声明的任意字段，这会告诉编译器无论类实例化多少次，这个变量实际上只存在一个副本（copy），特定种类的自行车档数可以用 static 标记，因为概念上来讲，这个档数将被应用到所有的实例，代码<code>static int numGears = 6</code> 将会创建这样的静态字段。此外，也可以使用 <code>final</code> 关键字表明该档数永远不会被修改。</li>
+<li>局部变量（Local Variables）和对象如何在字段中存储其状态类似，一个方法将会将其临时状态存储在局部变量中，声明一个局部变量的语法（syntax）和声明一个字段类似</li>
+<li>参数（Parameters）例如，public static void main(String[] args)中，args 就是 main 方法的参数，最重要的一点是，参数总被归为变量，而不是字段。这同样适用于其他支持参数的结构（比如构造函数和异常处理程序）</li>
 </ul>
+<p>尽管如此，本教程的其余部分在讨论字段和变量时使用以下一般准则。如果我们讨论的是 "一般的字段"（不包括局部变量和参数），我们可以直接说 "字段"。如果讨论适用于 "上述所有"，我们可以简单地说 "变量"。如果上下文要求进行区分，我们将酌情使用特定的术语（静态字段、局部变量等）。你可能偶尔也会看到 "成员（member） "这个术语。一个类型的字段、方法和嵌套类型被统称为其成员。</p>
+<h3 id="naming">命名（Naming）：<a class="headerlink" href="#naming" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p>大小写敏感，可以是以字母，美元符号，或下划线开头的无限长的 Unicode letter 和数字序列。按照惯例，变量名应当总是以字母开头，而不是<code>$</code> 或 <code>_</code>此外，按照惯例，永远不要使用美元符号，你可能发现某些情况下自动生成的变量名包含了美元符号（dollar sign），但是你的变量命名应该永远避免使用它。下划线字符也有类似的约定；虽然从技术上讲，用<code>_</code> 作为变量名称的开头是合法的，但这种做法是不可取的。此外，变量名中使用空格是不合法的。</p>
+</li>
+<li>
+<p>后续的字符可以是字母、数字、美元符号或下划线字符。惯例（和常识）也适用于这个规则。当为你的变量选择名称时，请使用全称，而不是隐晦的缩写。这样做会使你的代码更容易阅读和理解。在许多情况下，这也会使你的代码自文档化（self-documenting）；例如，命名为 <code>cadence</code>、<code>speed</code> 和 <code>gear</code> 的字段，比缩写的版本，如 s、c 和 g，要直观得多。</p>
+</li>
+<li>
+<p>如果你选择的名字只由一个词组成，请用所有小写字母拼出该词。如果它由一个以上的词组成，请将后面每个词的第一个字母大写。gearRatio和currentGear这两个名字就是这种惯例的典型例子。如果你的变量存储了一个常量值，比如 static final int NUM_GEARS = 6，那么惯例会稍有改变，每个字母都要大写，并且用下划线字符来分隔后面的单词。根据惯例，下划线字符永远不会在其他地方使用。</p>
+</li>
+</ul>
+<blockquote>
+<p>注：不要以为 letter 是英文字母，它包括中文！包括 <code>_￥</code> ， <code>中文</code> 和 <code>𝜃</code> 在内的变量名都是合法的，尽管这么干容易被同事打死</p>
+<p>我怎么知道一个 Unicode 字符是不是 Unicode letter， 参考 <a href="http://xahlee.info/comp/unicode_letter_character.html">这个地址</a></p>
+</blockquote>
+<h3 id="primitive-data-types">基本数据类型（Primitive Data Types）<a class="headerlink" href="#primitive-data-types" title="Permanent link">&para;</a></h3>
+<p>Java编程语言是静态类型的（statically-typed），必须首先声明。这包括说明变量的类型和名称，正如你已经看到的。</p>
+<div class="highlight"><pre><span></span><code>int gear = 1;
+</code></pre></div>
+<p>这样做会告诉你的程序，有一个名为 <code>gear</code> 的字段存在，持有数值型数据（numerical），初始值为1，一个变量的数据类型决定了它可能包含哪些值，以及哪些运算符可以被用于这个变量。除了 int 类型（整型） 以外，Java 编程语言还支持其他其中基本数据类型，一个基本数据类型由语言预定义，并用保留关键字（reserved keyword）来命名。基本数据类型的值之间不共享状态，Java 编程语言支持以下 8 种基本数据类型。</p>
+<ul>
+<li>Byte 类型 是 8 位有符号二进制补码整数（ 8-bit signed two's complement integer），最小值 -128，最大值为 127。字节数据类型对于在大数组中节省内存是很有用的，这种情况下节省的内存是很重要的需求。它们也可以用来代替int，因为它们的限制有助于阐述你的代码；一个变量的范围被限制的事实可以作为一种文档形式。</li>
+<li>short 数据类型标识 16 位带符号二进制补码整数，其最小值为 -32768，最大值为 32767（包括32767）。和字节一样，同样的准则也适用：你可以在大数组中使用short来节省内存，在这种情况下，节省的内存实际上很重要。</li>
+<li>int：默认情况下，int数据类型是一个32位有符号的二进制补码整数，它的最小值为2<sup>31-1，最大值为2</sup>31-1。在Java SE 8及以后的版本中，你可以使用int数据类型来表示一个无符号的32位整数，它的最小值为0，最大值为2^32-1。使用Integer类来使用int数据类型作为无符号整数。更多信息请参见 "Number类 "一节。静态方法如compareUnsigned, divideUnsigned 等已经被添加到Integer 类中，以支持无符号整数的算术操作。</li>
+<li>long。long数据类型是一个64位的二进制。有符号的long的最小值为-2<sup>63，最大值为2</sup>63-1。在Java SE 8及以后的版本中，你可以使用long数据类型来表示一个无符号的64位long，它的最小值为0，最大值为2^64-1。当你需要一个比int提供的数值范围更宽的数值时，可以使用这种数据类型。Long 类还包含一些方法，如 compareUnsigned, divideUnsigned 等，以支持无符号long 的算术操作。</li>
+<li>float。float数据类型是一个单精度的32位IEEE 754浮点。它的取值范围超出了本文的讨论范围，但在《Java语言规范》的浮点类型、格式和值部分有规定。如同对byte和short的建议一样，如果你需要在大的浮点数数组中节省内存，请使用浮点数（而不是double）。这种数据类型绝不应该用于精确的数值，例如货币。对于这一点，你需要使用java.math.BigDecimal类来代替。***Numbers and Strings***一书涵盖了BigDecimal和其他由Java平台提供的有用的类。</li>
+<li>double。double数据类型是一个双精度的64位IEEE 754浮点。它的取值范围超出了本文的讨论范围，但在《Java语言规范》的浮点类型、格式和值部分有规定。对于十进制值，这种数据类型通常是默认选择。如上所述，这种数据类型绝不应该用于精确的值，如货币。</li>
+<li>boolean。布尔数据类型只有两个可能的值：真和假。将这种数据类型用于跟踪真/假条件的简单标志。这种数据类型代表一位信息，但它的 "大小 "并不是精确定义的。</li>
+<li>char。char数据类型是一个单一的16位Unicode字符。它的最小值为'\u0000'（或0），最大值为'\uffff'（或65,535（包括））</li>
+</ul>
+<h4 id="1">1.默认值<a class="headerlink" href="#1" title="Permanent link">&para;</a></h4>
+<p>当一个字段被声明时，并不总是需要赋值。已声明但未初始化的字段将被编译器设置为一个合理的默认值。一般来说，这个默认值将是零或空，这取决于数据类型。然而，依赖这样的默认值，通常被认为是不好的编程风格。</p>
+<p>下面的图表总结了上述数据类型的默认值。
+| 数据类型 | 默认值（对于字段） |
+|--------|-----------------|
+|  byte  |        0        |
+|  short |        0        |
+|  int   |        0        |
+|  long  |        0L       |
+|  float |        0.0f     |
+| double |        0.0d     |
+|  char  |    '\u0000'     |
+|  String (or any object)  |        null        |
+|boolean |       false     |</p>
+<h4 id="_4">默认值<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h4>
+<p>局部变量略有不同；编译器永远不会给未初始化的局部变量分配一个默认值。如果你不能在声明的地方初始化你的局部变量，请确保在你试图使用它之前给它赋值。访问一个未初始化的局部变量将导致一个编译时错误。</p>
+<h4 id="literal">字面量（literal）<a class="headerlink" href="#literal" title="Permanent link">&para;</a></h4>
 
               
             </article>
