@@ -978,12 +978,73 @@
       
       
         <label class="md-nav__link" for="__nav_3_6">
+          显示
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="显示" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_6">
+          <span class="md-nav__icon md-icon"></span>
+          显示
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../%E7%94%B5%E5%AD%90%E5%B7%A5%E7%A8%8B/%E6%98%BE%E7%A4%BA/DC-Dimming/" class="md-nav__link">
+        DC 调光
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../%E7%94%B5%E5%AD%90%E5%B7%A5%E7%A8%8B/%E6%98%BE%E7%A4%BA/flicker/" class="md-nav__link">
+        频闪的危害
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_7" type="checkbox" id="__nav_3_7" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_7">
           测量设备的使用
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="测量设备的使用" data-md-level="2">
-        <label class="md-nav__title" for="__nav_3_6">
+        <label class="md-nav__title" for="__nav_3_7">
           <span class="md-nav__icon md-icon"></span>
           测量设备的使用
         </label>
@@ -1783,11 +1844,11 @@ API 和 Java 虚拟机将程序与其依赖的硬件(underlying hardware)隔离�
 <li>集成库（Integration Libraries）：Java IDL API，JDBC API， Java Naming and Directory Interface（JNDI）API, Java RMI, Java Remote Method Invoation over Internet Inter-ORB Protocol Technology(Java RMI-IIOP Technology)提供了远程的数据库对象访问和操作</li>
 </ul>
 <h2 id="hello-world">Hello World<a class="headerlink" href="#hello-world" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code>class HelloWorldApp{
-    public static void main(String[] args){
-        System.out.println(&quot;Hello World&quot;); // Display the string
-    }
-}
+<div class="highlight"><pre><span></span><code><span class="kd">class</span> <span class="nc">HelloWorldApp</span><span class="p">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">){</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Hello World&quot;</span><span class="p">);</span> <span class="c1">// Display the string</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 </code></pre></div>
 <p>这个应用可以分为三个部分：</p>
 <ul>
@@ -1800,15 +1861,15 @@ API 和 Java 虚拟机将程序与其依赖的硬件(underlying hardware)隔离�
 // 单行文本注释
 </code></pre></div>
 <h3 id="_1">类定义<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code>class name{
+<div class="highlight"><pre><span></span><code><span class="kd">class</span> <span class="nc">name</span><span class="p">{</span>
 
-}
+<span class="p">}</span>
 </code></pre></div>
 <h3 id="main">main 方法<a class="headerlink" href="#main" title="Permanent link">&para;</a></h3>
 <p>Java 规定每个应用程序都必须有一个 main 方法</p>
-<div class="highlight"><pre><span></span><code>public static void main(String[] args){
-    System.out.println(&quot;Hello World!&quot;);
-}
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">){</span>
+    <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Hello World!&quot;</span><span class="p">);</span>
+<span class="p">}</span>
 </code></pre></div>
 <p><code>public static</code> 的顺序无关紧要，但习惯上使用 <code>public static</code> 而不是 <code>static public</code> （后者同样可以正常编译运行）</p>
 <p><code>String args[]</code> 用于传递命令行参数，参数名可以自己定义，但是多数程序员会选择 <code>args</code> 或者 <code>argv</code></p>
@@ -1830,55 +1891,55 @@ API 和 Java 虚拟机将程序与其依赖的硬件(underlying hardware)隔离�
 <h3 id="class">类（Class）<a class="headerlink" href="#class" title="Permanent link">&para;</a></h3>
 <p>显示中许多独立的对象都有相同的类型。</p>
 <p>例如上千辆的自行车有着相同的制作工艺，模型，图纸，因此包含相同的组件。在面向对象的术语中，我们的你自己的自行车是对象（也就是所有的自行车）类的实例。。类是创建个体对象的蓝图。</p>
-<p>定义 Bicycle 类
-<div class="highlight"><pre><span></span><code>class Bicycle {
-    int cadence = 0;
-    int gear = 0;
-    int gear = 1；
-    void change Cadence (int newValue){
-        cadence = newValue;
-    }  
-    void changeGear(int newValue){
-        gear = newValue;
-    }
-    void speedUp(int increment){
-        speed = speed + increment;
-    }
-    void applyBrakes(int decrement){
-        speed = speed - decrement;
-    }
-    void printStates(){
-        System.out.println(&quot;cadence:&quot; +
-         cadence + &quot; speed:&quot; + 
-         speed + &quot; gear:&quot; + gear);
-    }
-}
+<p>定义 Bicycle 类</p>
+<p><div class="highlight"><pre><span></span><code><span class="kd">class</span> <span class="nc">Bicycle</span> <span class="p">{</span>
+    <span class="kt">int</span> <span class="n">cadence</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">gear</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">gear</span> <span class="o">=</span> <span class="mi">1</span><span class="err">；</span>
+    <span class="kt">void</span> <span class="n">change</span> <span class="nf">Cadence</span> <span class="p">(</span><span class="kt">int</span> <span class="n">newValue</span><span class="p">){</span>
+        <span class="n">cadence</span> <span class="o">=</span> <span class="n">newValue</span><span class="p">;</span>
+    <span class="p">}</span>  
+    <span class="kt">void</span> <span class="nf">changeGear</span><span class="p">(</span><span class="kt">int</span> <span class="n">newValue</span><span class="p">){</span>
+        <span class="n">gear</span> <span class="o">=</span> <span class="n">newValue</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="kt">void</span> <span class="nf">speedUp</span><span class="p">(</span><span class="kt">int</span> <span class="n">increment</span><span class="p">){</span>
+        <span class="n">speed</span> <span class="o">=</span> <span class="n">speed</span> <span class="o">+</span> <span class="n">increment</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="kt">void</span> <span class="nf">applyBrakes</span><span class="p">(</span><span class="kt">int</span> <span class="n">decrement</span><span class="p">){</span>
+        <span class="n">speed</span> <span class="o">=</span> <span class="n">speed</span> <span class="o">-</span> <span class="n">decrement</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="kt">void</span> <span class="nf">printStates</span><span class="p">(){</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;cadence:&quot;</span> <span class="o">+</span>
+         <span class="n">cadence</span> <span class="o">+</span> <span class="s">&quot; speed:&quot;</span> <span class="o">+</span> 
+         <span class="n">speed</span> <span class="o">+</span> <span class="s">&quot; gear:&quot;</span> <span class="o">+</span> <span class="n">gear</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 </code></pre></div>
 该类并没有包含 main 方法，类并不是完整的应用程序，仅仅是程序可能用到的自行车蓝图，创建和使用 Bicycle 新对象的任务由其他类完成。</p>
 <p>BicycleDemo 类创建了两个独立的 Bicycle 对象并调用它们的方法</p>
-<div class="highlight"><pre><span></span><code>class BicycleDemo {
-    public static void main(String[] args) {
-        //Create two different
-        //Bicycle objects
-        Bicycle  bike1 = new Bicycle();
-        Bicycle bike2 = new Bicycle();
+<div class="highlight"><pre><span></span><code><span class="kd">class</span> <span class="nc">BicycleDemo</span> <span class="p">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">//Create two different</span>
+        <span class="c1">//Bicycle objects</span>
+        <span class="n">Bicycle</span>  <span class="n">bike1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Bicycle</span><span class="p">();</span>
+        <span class="n">Bicycle</span> <span class="n">bike2</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Bicycle</span><span class="p">();</span>
 
-        //Invoke methods on
-        //those objects
-        bike1.changeCadence(50);
-        bike1.speedUp(10);
-        bike1.changeGear(2);
-        bike1.printStates();
+        <span class="c1">//Invoke methods on</span>
+        <span class="c1">//those objects</span>
+        <span class="n">bike1</span><span class="p">.</span><span class="na">changeCadence</span><span class="p">(</span><span class="mi">50</span><span class="p">);</span>
+        <span class="n">bike1</span><span class="p">.</span><span class="na">speedUp</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
+        <span class="n">bike1</span><span class="p">.</span><span class="na">changeGear</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+        <span class="n">bike1</span><span class="p">.</span><span class="na">printStates</span><span class="p">();</span>
 
-        bike2.changeCadence(50);
-        bike2.speedUp(10);
-        bike2.changeGear(2);
-        bike2.chnageCadence(40);
-        bike2.speedUp(10);
-        bike2.changeGear(3);
-        bike2.printStates();
-    }
-}
+        <span class="n">bike2</span><span class="p">.</span><span class="na">changeCadence</span><span class="p">(</span><span class="mi">50</span><span class="p">);</span>
+        <span class="n">bike2</span><span class="p">.</span><span class="na">speedUp</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
+        <span class="n">bike2</span><span class="p">.</span><span class="na">changeGear</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+        <span class="n">bike2</span><span class="p">.</span><span class="na">chnageCadence</span><span class="p">(</span><span class="mi">40</span><span class="p">);</span>
+        <span class="n">bike2</span><span class="p">.</span><span class="na">speedUp</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
+        <span class="n">bike2</span><span class="p">.</span><span class="na">changeGear</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
+        <span class="n">bike2</span><span class="p">.</span><span class="na">printStates</span><span class="p">();</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 </code></pre></div>
 <h3 id="inheritance">继承（Inheritance）<a class="headerlink" href="#inheritance" title="Permanent link">&para;</a></h3>
 <p>不同的对象也有相同的地方
@@ -1897,52 +1958,52 @@ API 和 Java 虚拟机将程序与其依赖的硬件(underlying hardware)隔离�
 <h3 id="interface">接口（Interface）<a class="headerlink" href="#interface" title="Permanent link">&para;</a></h3>
 <p>正如之前所学，对象通过其暴露的方法，定义它们与外界的交互。方法构成了对象与的接口。比如，电视机盒前面板上的按钮就是你与盒子里面电路交互的接口。你可以通过电源键来开关电视。</p>
 <p>最常见的情况，一个接口时一组空方法体的相关的方法。如果给自行车定义一个接口，大概会像这样</p>
-<div class="highlight"><pre><span></span><code>interface Bicycle {
+<div class="highlight"><pre><span></span><code><span class="kd">interface</span> <span class="nc">Bicycle</span> <span class="p">{</span>
 
-    //  wheel revolutions per minute
-    void changeCadence(int newValue);
+    <span class="c1">//  wheel revolutions per minute</span>
+    <span class="kt">void</span> <span class="nf">changeCadence</span><span class="p">(</span><span class="kt">int</span> <span class="n">newValue</span><span class="p">);</span>
 
-    void changeGear(int newValue);
+    <span class="kt">void</span> <span class="nf">changeGear</span><span class="p">(</span><span class="kt">int</span> <span class="n">newValue</span><span class="p">);</span>
 
-    void speedUp(int increment);
+    <span class="kt">void</span> <span class="nf">speedUp</span><span class="p">(</span><span class="kt">int</span> <span class="n">increment</span><span class="p">);</span>
 
-    void applyBrakes(int decrement);
-}
+    <span class="kt">void</span> <span class="nf">applyBrakes</span><span class="p">(</span><span class="kt">int</span> <span class="n">decrement</span><span class="p">);</span>
+<span class="p">}</span>
 </code></pre></div>
 <p>为了实现（implement）这个接口，你的类名需要进行修改（变为某个特定品牌的自行车，比如 ACMEBicycle），并且你应该在类声明中使用 <code>implements</code> 关键字：</p>
-<div class="highlight"><pre><span></span><code>class ACMEBicycle implements Bicycle {
+<div class="highlight"><pre><span></span><code><span class="kd">class</span> <span class="nc">ACMEBicycle</span> <span class="kd">implements</span> <span class="n">Bicycle</span> <span class="p">{</span>
 
-    int cadence = 0;
-    int speed = 0;
-    int gear = 1;
+    <span class="kt">int</span> <span class="n">cadence</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">speed</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">gear</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
 
-   // The compiler will now require that methods
-   // changeCadence, changeGear, speedUp, and applyBrakes
-   // all be implemented. Compilation will fail if those
-   // methods are missing from this class.
+   <span class="c1">// The compiler will now require that methods</span>
+   <span class="c1">// changeCadence, changeGear, speedUp, and applyBrakes</span>
+   <span class="c1">// all be implemented. Compilation will fail if those</span>
+   <span class="c1">// methods are missing from this class.</span>
 
-    void changeCadence(int newValue) {
-         cadence = newValue;
-    }
+    <span class="kt">void</span> <span class="nf">changeCadence</span><span class="p">(</span><span class="kt">int</span> <span class="n">newValue</span><span class="p">)</span> <span class="p">{</span>
+         <span class="n">cadence</span> <span class="o">=</span> <span class="n">newValue</span><span class="p">;</span>
+    <span class="p">}</span>
 
-    void changeGear(int newValue) {
-         gear = newValue;
-    }
+    <span class="kt">void</span> <span class="nf">changeGear</span><span class="p">(</span><span class="kt">int</span> <span class="n">newValue</span><span class="p">)</span> <span class="p">{</span>
+         <span class="n">gear</span> <span class="o">=</span> <span class="n">newValue</span><span class="p">;</span>
+    <span class="p">}</span>
 
-    void speedUp(int increment) {
-         speed = speed + increment;   
-    }
+    <span class="kt">void</span> <span class="nf">speedUp</span><span class="p">(</span><span class="kt">int</span> <span class="n">increment</span><span class="p">)</span> <span class="p">{</span>
+         <span class="n">speed</span> <span class="o">=</span> <span class="n">speed</span> <span class="o">+</span> <span class="n">increment</span><span class="p">;</span>   
+    <span class="p">}</span>
 
-    void applyBrakes(int decrement) {
-         speed = speed - decrement;
-    }
+    <span class="kt">void</span> <span class="nf">applyBrakes</span><span class="p">(</span><span class="kt">int</span> <span class="n">decrement</span><span class="p">)</span> <span class="p">{</span>
+         <span class="n">speed</span> <span class="o">=</span> <span class="n">speed</span> <span class="o">-</span> <span class="n">decrement</span><span class="p">;</span>
+    <span class="p">}</span>
 
-    void printStates() {
-         System.out.println(&quot;cadence:&quot; +
-             cadence + &quot; speed:&quot; + 
-             speed + &quot; gear:&quot; + gear);
-    }
-}
+    <span class="kt">void</span> <span class="nf">printStates</span><span class="p">()</span> <span class="p">{</span>
+         <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;cadence:&quot;</span> <span class="o">+</span>
+             <span class="n">cadence</span> <span class="o">+</span> <span class="s">&quot; speed:&quot;</span> <span class="o">+</span> 
+             <span class="n">speed</span> <span class="o">+</span> <span class="s">&quot; gear:&quot;</span> <span class="o">+</span> <span class="n">gear</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 </code></pre></div>
 <p>实现（implement）一个接口可以使一个类对它所承诺提供的行为变得更加形式化。接口在类和外部世界之间形成了一个契约（contract），这个契约在编译时被强制执行。如果你的类声称要实现一个接口，那么在该类成功编译之前，该接口定义的所有方法必须出现在其源代码中。</p>
 <blockquote>
@@ -1963,9 +2024,9 @@ API 和 Java 虚拟机将程序与其依赖的硬件(underlying hardware)隔离�
 <h2 id="_3">语言基础<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <h3 id="variables">变量（Variables）<a class="headerlink" href="#variables" title="Permanent link">&para;</a></h3>
 <p>正如之前所学，对象将其状态（state）存储在字段（fields）中</p>
-<div class="highlight"><pre><span></span><code>int cadence = 0;
-int speed = 0;
-int gear = 1;
+<div class="highlight"><pre><span></span><code><span class="kt">int</span> <span class="n">cadence</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="kt">int</span> <span class="n">speed</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="kt">int</span> <span class="n">gear</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
 </code></pre></div>
 <p>在 什么是对象 的部分已经介绍了字段，但你可能还有疑惑：命名一个字段的规则和惯例是什么，除了 int 还有哪些数据类型，如果字段没有被明确初始化，是否会被分配一个默认值？我们将在本课中探讨这些问题的答案，但在这之前，你必须先了解一些技术上的区别。在Java编程语言中，"字段 "和 "变量 "这两个词都被使用；这在新的开发者中是一个常见的混淆源，因为这两个词似乎都是指同一件事。</p>
 <p>Java 编程语言定义了如下种类的变量：</p>
@@ -1994,7 +2055,7 @@ int gear = 1;
 </blockquote>
 <h3 id="primitive-data-types">基本数据类型（Primitive Data Types）<a class="headerlink" href="#primitive-data-types" title="Permanent link">&para;</a></h3>
 <p>Java编程语言是静态类型的（statically-typed），必须首先声明。这包括说明变量的类型和名称，正如你已经看到的。</p>
-<div class="highlight"><pre><span></span><code>int gear = 1;
+<div class="highlight"><pre><span></span><code><span class="kt">int</span> <span class="n">gear</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
 </code></pre></div>
 <p>这样做会告诉你的程序，有一个名为 <code>gear</code> 的字段存在，持有数值型数据（numerical），初始值为1，一个变量的数据类型决定了它可能包含哪些值，以及哪些运算符可以被用于这个变量。除了 int 类型（整型） 以外，Java 编程语言还支持其他其中基本数据类型，一个基本数据类型由语言预定义，并用保留关键字（reserved keyword）来命名。基本数据类型的值之间不共享状态，Java 编程语言支持以下 8 种基本数据类型。</p>
 <ul>
@@ -2059,11 +2120,11 @@ int gear = 1;
 <p>局部变量略有不同；编译器永远不会给未初始化的局部变量分配一个默认值。如果你不能在声明的地方初始化你的局部变量，请确保在你试图使用它之前给它赋值。访问一个未初始化的局部变量将导致一个编译时错误。</p>
 <h4 id="2-literal">2. 字面量（literal）<a class="headerlink" href="#2-literal" title="Permanent link">&para;</a></h4>
 <p>你可能已经注意到了 new 关键字不呢个用于初始化一个基本类型变量。基本类型是编程语言内置的特殊数据类型。它们并不是由类创建的对象，一个字面量是一个固定值的源码表示，它在你的代码是直接表示而无需计算。</p>
-<div class="highlight"><pre><span></span><code>boolean result = true;
-char capitalC = &#39;C&#39;;
-byte b = 100;
-short s = 10000;
-int i = 100000;
+<div class="highlight"><pre><span></span><code><span class="kt">boolean</span> <span class="n">result</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+<span class="kt">char</span> <span class="n">capitalC</span> <span class="o">=</span> <span class="sc">&#39;C&#39;</span><span class="p">;</span>
+<span class="kt">byte</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span>
+<span class="kt">short</span> <span class="n">s</span> <span class="o">=</span> <span class="mi">10000</span><span class="p">;</span>
+<span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">100000</span><span class="p">;</span>
 </code></pre></div>
 <h4 id="integer-literals">整数字面量（Integer Literals）<a class="headerlink" href="#integer-literals" title="Permanent link">&para;</a></h4>
 <p>如果一个整数字面量以 <code>L</code> 或 <code>l</code> 结尾，则其为 long 类型，否则为 int 类型。推荐使用大写 L 因为 小写的 l 极易与数字 1 混淆。</p>
@@ -2072,10 +2133,10 @@ int i = 100000;
 <h4 id="floating-point-literals">浮点字面量（Floating-Point Literals）<a class="headerlink" href="#floating-point-literals" title="Permanent link">&para;</a></h4>
 <p>一个浮点字面量是如果以 F 或 f 结尾是 float 类型，否则为 double 类型（可选以 D 或 d 结尾）</p>
 <p>浮点类型也可以用 E 或 e 表示（用于科学计数法（scientific notation）），F 或 f （32位 float 字面量） 以及 D 或者 d（64位 double 字面量，默认的，而且通常省略不写）</p>
-<div class="highlight"><pre><span></span><code>double d1 = 123.4;
-// same value as d1, but in scientific notation
-double d2 = 1.234e2;
-float f1  = 123.4f;
+<div class="highlight"><pre><span></span><code><span class="kt">double</span> <span class="n">d1</span> <span class="o">=</span> <span class="mf">123.4</span><span class="p">;</span>
+<span class="c1">// same value as d1, but in scientific notation</span>
+<span class="kt">double</span> <span class="n">d2</span> <span class="o">=</span> <span class="mf">1.234e2</span><span class="p">;</span>
+<span class="kt">float</span> <span class="n">f1</span>  <span class="o">=</span> <span class="mf">123.4f</span><span class="p">;</span>
 </code></pre></div>
 <h4 id="character-and-string-literals">字符和字符串字面量（Character and String Literals）<a class="headerlink" href="#character-and-string-literals" title="Permanent link">&para;</a></h4>
 <p>字符和字符串类型的字面量可能包含任何 Unicode (UTF-16) 字符。如果你的编辑器和文件系统允许，你在代码中直接使用这些字符，如果不行，你可以使用 “Unicode 转义字符（Unicode escape）” 例如 <code>'\u0108'</code> <code>"S\u00ED Se\u00Flor"</code> (西班牙语的 Sí Señor)。永远对字符字面量单引号（single quotes），对字符串字面量使用双引号（double quotes）Unicode 转义序列也可以用于程序的其他地方（比如字段名）而不只是字符或字符串字面量</p>
