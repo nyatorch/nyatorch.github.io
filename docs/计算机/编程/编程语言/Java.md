@@ -46,7 +46,7 @@ API 和 Java 虚拟机将程序与其依赖的硬件(underlying hardware)隔离�
 
 ## Hello World
 
-```
+```Java
 class HelloWorldApp{
     public static void main(String[] args){
         System.out.println("Hello World"); // Display the string
@@ -66,7 +66,8 @@ class HelloWorldApp{
 // 单行文本注释
 ```
 ### 类定义
-```
+
+```Java
 class name{
 
 }
@@ -75,7 +76,7 @@ class name{
 
 Java 规定每个应用程序都必须有一个 main 方法
 
-```
+```Java
 public static void main(String[] args){
     System.out.println("Hello World!");
 }
@@ -114,7 +115,8 @@ public static void main(String[] args){
 例如上千辆的自行车有着相同的制作工艺，模型，图纸，因此包含相同的组件。在面向对象的术语中，我们的你自己的自行车是对象（也就是所有的自行车）类的实例。。类是创建个体对象的蓝图。
 
 定义 Bicycle 类
-```
+
+```Java
 class Bicycle {
     int cadence = 0;
     int gear = 0;
@@ -142,7 +144,7 @@ class Bicycle {
 
 BicycleDemo 类创建了两个独立的 Bicycle 对象并调用它们的方法
 
-```
+```Java
 class BicycleDemo {
     public static void main(String[] args) {
         //Create two different
@@ -194,7 +196,7 @@ class MountainBike extends Bicycle {
 
 最常见的情况，一个接口时一组空方法体的相关的方法。如果给自行车定义一个接口，大概会像这样
 
-```
+```Java
 interface Bicycle {
 
     //  wheel revolutions per minute
@@ -210,7 +212,7 @@ interface Bicycle {
 
 为了实现（implement）这个接口，你的类名需要进行修改（变为某个特定品牌的自行车，比如 ACMEBicycle），并且你应该在类声明中使用 `implements` 关键字：
 
-```
+```Java
 class ACMEBicycle implements Bicycle {
 
     int cadence = 0;
@@ -284,7 +286,7 @@ Socket对象允许创建和使用网络套接字；
 
 正如之前所学，对象将其状态（state）存储在字段（fields）中
 
-```
+```Java
 int cadence = 0;
 int speed = 0;
 int gear = 1;
@@ -317,7 +319,7 @@ Java 编程语言定义了如下种类的变量：
 
 Java编程语言是静态类型的（statically-typed），必须首先声明。这包括说明变量的类型和名称，正如你已经看到的。
 
-```
+```Java
 int gear = 1;
 ```
 
@@ -354,7 +356,7 @@ int gear = 1;
 #### 2. 字面量（literal）
 你可能已经注意到了 new 关键字不呢个用于初始化一个基本类型变量。基本类型是编程语言内置的特殊数据类型。它们并不是由类创建的对象，一个字面量是一个固定值的源码表示，它在你的代码是直接表示而无需计算。
 
-```
+```Java
 boolean result = true;
 char capitalC = 'C';
 byte b = 100;
@@ -374,7 +376,7 @@ int i = 100000;
 
 浮点类型也可以用 E 或 e 表示（用于科学计数法（scientific notation）），F 或 f （32位 float 字面量） 以及 D 或者 d（64位 double 字面量，默认的，而且通常省略不写）
 
-```
+```Java
 double d1 = 123.4;
 // same value as d1, but in scientific notation
 double d2 = 1.234e2;
@@ -383,5 +385,4 @@ float f1  = 123.4f;
 
 #### 字符和字符串字面量（Character and String Literals）
 字符和字符串类型的字面量可能包含任何 Unicode (UTF-16) 字符。如果你的编辑器和文件系统允许，你在代码中直接使用这些字符，如果不行，你可以使用 “Unicode 转义字符（Unicode escape）” 例如 `'\u0108'` `"S\u00ED Se\u00Flor"` (西班牙语的 Sí Señor)。永远对字符字面量单引号（single quotes），对字符串字面量使用双引号（double quotes）Unicode 转义序列也可以用于程序的其他地方（比如字段名）而不只是字符或字符串字面量
-
 
